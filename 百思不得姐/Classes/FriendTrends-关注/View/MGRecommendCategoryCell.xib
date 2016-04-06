@@ -41,7 +41,7 @@
             <connections>
                 <outlet property="selectedIndicator" destination="lr8-kM-Wka" id="li3-8C-9w9"/>
             </connections>
-            <point key="canvasLocation" x="151" y="115"/>
+            <point key="canvasLocation" x="330" y="123"/>
         </tableViewCell>
     </objects>
 </document>

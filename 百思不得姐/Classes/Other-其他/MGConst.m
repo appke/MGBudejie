@@ -17,3 +17,7 @@ CGFloat const MGTopicCellBottomBarH = 44;
 CGFloat const MGTopicCellPictureMaxH = 1000;
 /** 精华-cell-图片帖子超过最大高度,就使用Break */
 CGFloat const MGTopicCellPictureBreakH = 250;
+
+/** MGUser模型-性别属性值 */
+NSString *const MGUserSexMale = @"m";
+NSString *const MGUserSexFemale = @"f";

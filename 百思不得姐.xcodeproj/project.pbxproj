@@ -26,7 +26,6 @@
 		CC2D2F6B1CADC32E00371D81 /* MGTopicVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2D2F131CADC32E00371D81 /* MGTopicVideoView.xib */; };
 		CC2D2F6C1CADC32E00371D81 /* MGTopicVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2D2F151CADC32E00371D81 /* MGTopicVoiceView.m */; };
 		CC2D2F6D1CADC32E00371D81 /* MGTopicVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2D2F161CADC32E00371D81 /* MGTopicVoiceView.xib */; };
-		CC2D2F6E1CADC32E00371D81 /* UIImage+MGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2D2F181CADC32E00371D81 /* UIImage+MGExtension.m */; };
 		CC2D2F6F1CADC32E00371D81 /* MGFriendTrendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2D2F1C1CADC32E00371D81 /* MGFriendTrendsViewController.m */; };
 		CC2D2F701CADC32E00371D81 /* MGFriendTrendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2D2F1D1CADC32E00371D81 /* MGFriendTrendsViewController.xib */; };
 		CC2D2F711CADC32E00371D81 /* MGLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2D2F1F1CADC32E00371D81 /* MGLoginRegisterViewController.m */; };
@@ -61,6 +60,9 @@
 		CC2D2F8E1CADC32E00371D81 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC2D2F5A1CADC32E00371D81 /* Info.plist */; };
 		CC2D2F8F1CADC32E00371D81 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC2D2F5B1CADC32E00371D81 /* Storyboard.storyboard */; };
 		CC2D2F941CADC3A700371D81 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC2D2F921CADC3A700371D81 /* Info.plist */; };
+		CC3B1F1A1CB4321100BE8324 /* UIImage+MGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3B1F191CB4321100BE8324 /* UIImage+MGExtension.m */; };
+		CCBD3E2B1CB17645009D6171 /* MGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBD3E2A1CB17645009D6171 /* MGUser.m */; };
+		CCBD3E2E1CB17850009D6171 /* MGComment.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBD3E2D1CB17850009D6171 /* MGComment.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,8 +108,6 @@
 		CC2D2F141CADC32E00371D81 /* MGTopicVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTopicVoiceView.h; sourceTree = "<group>"; };
 		CC2D2F151CADC32E00371D81 /* MGTopicVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGTopicVoiceView.m; sourceTree = "<group>"; };
 		CC2D2F161CADC32E00371D81 /* MGTopicVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MGTopicVoiceView.xib; sourceTree = "<group>"; };
-		CC2D2F171CADC32E00371D81 /* UIImage+MGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MGExtension.h"; sourceTree = "<group>"; };
-		CC2D2F181CADC32E00371D81 /* UIImage+MGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MGExtension.m"; sourceTree = "<group>"; };
 		CC2D2F1B1CADC32E00371D81 /* MGFriendTrendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGFriendTrendsViewController.h; sourceTree = "<group>"; };
 		CC2D2F1C1CADC32E00371D81 /* MGFriendTrendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGFriendTrendsViewController.m; sourceTree = "<group>"; };
 		CC2D2F1D1CADC32E00371D81 /* MGFriendTrendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MGFriendTrendsViewController.xib; sourceTree = "<group>"; };
@@ -165,8 +165,14 @@
 		CC2D2F5B1CADC32E00371D81 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		CC2D2F921CADC3A700371D81 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC2D2F931CADC3A700371D81 /* xm04______Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "xm04______Tests.m"; sourceTree = "<group>"; };
+		CC3B1F181CB4321100BE8324 /* UIImage+MGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MGExtension.h"; sourceTree = "<group>"; };
+		CC3B1F191CB4321100BE8324 /* UIImage+MGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MGExtension.m"; sourceTree = "<group>"; };
 		CC64D1DA1C8E87EC00C7A44D /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC64D1F31C8E87EC00C7A44D /* 百思不得姐.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "百思不得姐.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCBD3E291CB17645009D6171 /* MGUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGUser.h; sourceTree = "<group>"; };
+		CCBD3E2A1CB17645009D6171 /* MGUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGUser.m; sourceTree = "<group>"; };
+		CCBD3E2C1CB17850009D6171 /* MGComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGComment.h; sourceTree = "<group>"; };
+		CCBD3E2D1CB17850009D6171 /* MGComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGComment.m; sourceTree = "<group>"; };
 		ED6B25C618BA6DBC178A151E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -219,9 +225,9 @@
 			isa = PBXGroup;
 			children = (
 				CC2D2EF51CADC32E00371D81 /* Essence-精华 */,
-				CC2D2F191CADC32E00371D81 /* FriendTrends-关注 */,
 				CC2D2F341CADC32E00371D81 /* Me-我 */,
 				CC2D2F381CADC32E00371D81 /* New-新帖 */,
+				CC2D2F191CADC32E00371D81 /* FriendTrends-关注 */,
 				CC2D2F3C1CADC32E00371D81 /* Other-其他 */,
 			);
 			path = Classes;
@@ -260,6 +266,10 @@
 				CC2D2F021CADC32E00371D81 /* MGRecommendTag.m */,
 				CC2D2F031CADC32E00371D81 /* MGTopic.h */,
 				CC2D2F041CADC32E00371D81 /* MGTopic.m */,
+				CCBD3E291CB17645009D6171 /* MGUser.h */,
+				CCBD3E2A1CB17645009D6171 /* MGUser.m */,
+				CCBD3E2C1CB17850009D6171 /* MGComment.h */,
+				CCBD3E2D1CB17850009D6171 /* MGComment.m */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -284,8 +294,6 @@
 				CC2D2F141CADC32E00371D81 /* MGTopicVoiceView.h */,
 				CC2D2F151CADC32E00371D81 /* MGTopicVoiceView.m */,
 				CC2D2F161CADC32E00371D81 /* MGTopicVoiceView.xib */,
-				CC2D2F171CADC32E00371D81 /* UIImage+MGExtension.h */,
-				CC2D2F181CADC32E00371D81 /* UIImage+MGExtension.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -381,16 +389,16 @@
 		CC2D2F3C1CADC32E00371D81 /* Other-其他 */ = {
 			isa = PBXGroup;
 			children = (
-				CC2D2F3D1CADC32E00371D81 /* AppDelegate.h */,
-				CC2D2F3E1CADC32E00371D81 /* AppDelegate.m */,
 				CC2D2F3F1CADC32E00371D81 /* Category */,
 				CC2D2F461CADC32E00371D81 /* Controller */,
-				CC2D2F4E1CADC32E00371D81 /* Foundation+Log.m */,
+				CC2D2F531CADC32E00371D81 /* View */,
+				CC2D2F3D1CADC32E00371D81 /* AppDelegate.h */,
+				CC2D2F3E1CADC32E00371D81 /* AppDelegate.m */,
 				CC2D2F4F1CADC32E00371D81 /* main.m */,
 				CC2D2F501CADC32E00371D81 /* MGConst.h */,
 				CC2D2F511CADC32E00371D81 /* MGConst.m */,
 				CC2D2F521CADC32E00371D81 /* PrefixHeader.pch */,
-				CC2D2F531CADC32E00371D81 /* View */,
+				CC2D2F4E1CADC32E00371D81 /* Foundation+Log.m */,
 			);
 			path = "Other-其他";
 			sourceTree = "<group>";
@@ -404,6 +412,8 @@
 				CC2D2F431CADC32E00371D81 /* UIBarButtonItem+MGExtension.m */,
 				CC2D2F441CADC32E00371D81 /* UIView+MGExtension.h */,
 				CC2D2F451CADC32E00371D81 /* UIView+MGExtension.m */,
+				CC3B1F181CB4321100BE8324 /* UIImage+MGExtension.h */,
+				CC3B1F191CB4321100BE8324 /* UIImage+MGExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -640,11 +650,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC2D2F6A1CADC32E00371D81 /* MGTopicVideoView.m in Sources */,
+				CCBD3E2B1CB17645009D6171 /* MGUser.m in Sources */,
 				CC2D2F7D1CADC32E00371D81 /* MGMeViewController.m in Sources */,
 				CC2D2F5E1CADC32E00371D81 /* MGShowPictureViewController.m in Sources */,
 				CC2D2F841CADC32E00371D81 /* MGPublishView.m in Sources */,
+				CC3B1F1A1CB4321100BE8324 /* UIImage+MGExtension.m in Sources */,
 				CC2D2F831CADC32E00371D81 /* MGNavigationController.m in Sources */,
 				CC2D2F811CADC32E00371D81 /* UIBarButtonItem+MGExtension.m in Sources */,
+				CCBD3E2E1CB17850009D6171 /* MGComment.m in Sources */,
 				CC2D2F861CADC32E00371D81 /* MGTabBarController.m in Sources */,
 				CC2D2F881CADC32E00371D81 /* main.m in Sources */,
 				CC2D2F5C1CADC32E00371D81 /* MGEssenceViewController.m in Sources */,
@@ -672,7 +685,6 @@
 				CC2D2F7E1CADC32E00371D81 /* MGNewViewController.m in Sources */,
 				CC2D2F761CADC32E00371D81 /* MGRecommendUser.m in Sources */,
 				CC2D2F661CADC32E00371D81 /* MGTopicCell.m in Sources */,
-				CC2D2F6E1CADC32E00371D81 /* UIImage+MGExtension.m in Sources */,
 				CC2D2F601CADC32E00371D81 /* MGTopicViewController.m in Sources */,
 				CC2D2F771CADC32E00371D81 /* MGRecommendCategoryCell.m in Sources */,
 			);
@@ -784,7 +796,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PREFIX_HEADER = "百思不得姐/Classes/Other-其他/PrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mg.mglove;
 				PRODUCT_NAME = "百思不得姐";
@@ -799,7 +811,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PREFIX_HEADER = "百思不得姐/Classes/Other-其他/PrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mg.mglove;
 				PRODUCT_NAME = "百思不得姐";

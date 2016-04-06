@@ -8,6 +8,7 @@
 
 #import "MGTopic.h"
 #import <MJExtension.h>
+#import "MGComment.h"
 
 @implementation MGTopic
 {
@@ -21,6 +22,14 @@
              @"small_image" : @"image0",
              @"large_image" : @"image1",
              @"middle_image" : @"image2"
+             };
+}
+
++ (NSDictionary *)mj_objectClassInArray
+{
+    return @{
+//             @"top_cmt" : [MGComment class]
+             @"top_cmt" : @"MGComment"
              };
 }
 

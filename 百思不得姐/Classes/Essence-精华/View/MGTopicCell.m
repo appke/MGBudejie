@@ -50,6 +50,10 @@
     UIImageView *bgView = [[UIImageView alloc] init];
     bgView.image = [UIImage imageNamed:@"mainCellBackground"];
     self.backgroundView = bgView;
+    
+    // 选中是的背景不变
+//    self.selectedBackgroundView = bgView;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (MGTopicPictureView *)pictureView

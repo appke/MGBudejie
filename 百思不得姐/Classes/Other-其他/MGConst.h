@@ -26,3 +26,7 @@ UIKIT_EXTERN CGFloat const MGTopicCellBottomBarH;
 UIKIT_EXTERN CGFloat const MGTopicCellPictureMaxH;
 /** 精华-cell-图片帖子超过最大高度,就使用Break */
 UIKIT_EXTERN CGFloat const MGTopicCellPictureBreakH;
+
+/** MGUser模型-性别属性值 */
+UIKIT_EXTERN NSString *const MGUserSexMale;
+UIKIT_EXTERN NSString *const MGUserSexFemale;

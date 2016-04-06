@@ -56,6 +56,9 @@ static NSString * const topicID = @"topic";
     CGFloat bottom = self.tabBarController.tabBar.height;
     self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
     
+    // 表格演示设置
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     // 设置滚动条的内编剧
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     self.tableView.backgroundColor = [UIColor clearColor];
@@ -105,6 +108,8 @@ static NSString * const topicID = @"topic";
         // 存储maxtime 加载下一页需要
         self.maxtime = responseObject[@"info"][@"maxtime"];
         
+//        [responseObject[@"list"] writeToFile:@"/Users/MG/Desktop/tiezi.plist" atomically:YES];
+        
         // 刷新表格
         [self.tableView reloadData];
         
@@ -125,7 +130,7 @@ static NSString * const topicID = @"topic";
 - (void)loadMoreTopics
 {
     // 结束mj_header刷新
-    [self.tableView.header endRefreshing];
+    [self.tableView.mj_header endRefreshing];
     // 页码
     self.page++;
     

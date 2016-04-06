@@ -54,7 +54,7 @@
     
     [self setupChildVc:[[MGFriendTrendsViewController alloc] init] title:@"关注" image:@"tabBar_friendTrends_icon" selectedImage:@"tabBar_friendTrends_click_icon"];
     
-    [self setupChildVc:[[MGMeViewController alloc] init] title:@"精华" image:@"tabBar_me_icon" selectedImage:@"tabBar_me_click_icon"];
+    [self setupChildVc:[[MGMeViewController alloc] init] title:@"我的" image:@"tabBar_me_icon" selectedImage:@"tabBar_me_click_icon"];
 
     // 更换tabBar
 //    self.tabBar = [[MGTabBar alloc] init];

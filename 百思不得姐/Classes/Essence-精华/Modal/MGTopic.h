@@ -7,7 +7,7 @@
 //  帖子
 
 #import <Foundation/Foundation.h>
-
+@class MGComment;
 @interface MGTopic : NSObject
 
 /** 名称 */
@@ -56,16 +56,16 @@
 @property (nonatomic, assign, readonly) CGRect pictureF;
 /** 图片是否太大 */
 @property (nonatomic, assign, getter=isBigPicture) BOOL bigPicture;
-
 /** 图片的下载进度 */
 @property (nonatomic, assign) CGFloat pictureProgress;
-
 /** 声音控件的frame */
 @property (nonatomic, assign, readonly) CGRect voiceF;
-
 /** 视频时长 */
 @property (nonatomic, assign) NSInteger videotime;
 /** 视频控件的frame */
 @property (nonatomic, assign, readonly) CGRect videoF;
+
+/** 最热评论(期望这个数组中存放MGComment模型) */
+@property (nonatomic, strong) NSArray *top_cmt;
 
 @end
