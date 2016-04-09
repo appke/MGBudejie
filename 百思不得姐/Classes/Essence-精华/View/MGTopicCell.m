@@ -12,6 +12,9 @@
 #import "MGTopicPictureView.h"
 #import "MGTopicVoiceView.h"
 #import "MGTopicVideoView.h"
+#import "MGComment.h"
+#import "MGUser.h"
+
 
 @interface MGTopicCell ()
 /** 图像 */
@@ -41,6 +44,12 @@
 
 /** 帖子中间的视频 */
 @property (nonatomic, weak) MGTopicVideoView *videoView;
+
+/** 评论内容 */
+@property (weak, nonatomic) IBOutlet UILabel *topCmtContentLabel;
+/** 最热评论整体 */
+@property (weak, nonatomic) IBOutlet UIView *topCmtView;
+
 @end
 
 @implementation MGTopicCell
@@ -50,10 +59,14 @@
     UIImageView *bgView = [[UIImageView alloc] init];
     bgView.image = [UIImage imageNamed:@"mainCellBackground"];
     self.backgroundView = bgView;
-    
     // 选中是的背景不变
 //    self.selectedBackgroundView = bgView;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+}
+
++ (instancetype)cell
+{
+    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] lastObject];
 }
 
 - (MGTopicPictureView *)pictureView
@@ -130,7 +143,6 @@
         self.videoView.hidden = YES;
         
     } else if (topic.type == MGTopicTypeVideo) { // 视频帖子
-
         self.videoView.hidden = NO;
         self.videoView.topic = topic;
         self.videoView.frame = topic.videoF;
@@ -140,10 +152,19 @@
         
         
     } else if (topic.type == MGTopicTypeWord){ // 段子帖子 (写全，防止以后再加)
-        
         self.pictureView.hidden = YES;
         self.voiceView.hidden = YES;
         self.videoView.hidden = YES;
+    }
+    
+    // 处理最热评
+    MGComment *cmt = [topic.top_cmt firstObject];
+    if (cmt) {
+        self.topCmtView.hidden = NO;
+        // 拼接用户名 : 评论内容
+        self.topCmtContentLabel.text = [NSString stringWithFormat:@"%@ : %@", cmt.user.username, cmt.content];
+    } else {
+        self.topCmtView.hidden = YES;
     }
 }
 
@@ -165,10 +186,10 @@
 - (void)setFrame:(CGRect)frame
 {
 //    static CGFloat margin = 10;
-    
     frame.origin.x = MGTopicCellMargin;
     frame.size.width -= 2 * MGTopicCellMargin;
-    frame.size.height -= MGTopicCellMargin;
+//    frame.size.height -= MGTopicCellMargin;
+    frame.size.height = self.topic.cellHeight - MGTopicCellMargin;
     frame.origin.y += MGTopicCellMargin;
     
     [super setFrame:frame];
@@ -179,6 +200,12 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (IBAction)more:(id)sender {
+    
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"收藏", @"举报", nil];
+    [sheet showInView:self.window];
 }
 
 @end

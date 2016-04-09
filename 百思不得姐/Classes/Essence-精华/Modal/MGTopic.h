@@ -10,6 +10,8 @@
 @class MGComment;
 @interface MGTopic : NSObject
 
+/** 帖子id */
+@property (nonatomic, copy) NSString *ID;
 /** 名称 */
 @property (nonatomic, copy) NSString *name;
 /** 图像 */

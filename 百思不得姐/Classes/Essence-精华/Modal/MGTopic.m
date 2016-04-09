@@ -9,6 +9,7 @@
 #import "MGTopic.h"
 #import <MJExtension.h>
 #import "MGComment.h"
+#import "MGUser.h"
 
 @implementation MGTopic
 {
@@ -21,7 +22,8 @@
     return @{
              @"small_image" : @"image0",
              @"large_image" : @"image1",
-             @"middle_image" : @"image2"
+             @"middle_image" : @"image2",
+             @"ID" : @"id"
              };
 }
 
@@ -119,6 +121,16 @@
             
             _videoF = CGRectMake(videoX, videoY, videoW, videoH);
             _cellHeight += videoH + MGTopicCellMargin;
+        }
+        
+        // 计算最热评论的的高度
+        MGComment *cmt = [self.top_cmt firstObject];
+        if (cmt) { // 如果有
+            
+            NSString *content = [NSString stringWithFormat:@"%@ : %@", cmt.user.username, cmt.content];
+            CGFloat contentH = [content boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13] } context:nil].size.height;
+            
+            _cellHeight += contentH + MGTopicCellTopCmtTitleH + MGTopicCellMargin;
         }
         
         // 底部工具条高度(cell之间的分割用)

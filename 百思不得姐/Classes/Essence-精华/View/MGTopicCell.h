@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 @class MGTopic;
 @interface MGTopicCell : UITableViewCell
-
 /** 帖子数据 */
 @property (nonatomic, strong) MGTopic *topic;
+
+/** 快速返回一个cell */
++ (instancetype)cell;
 @end

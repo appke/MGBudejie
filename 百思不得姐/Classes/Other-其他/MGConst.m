@@ -11,7 +11,7 @@ CGFloat const MGTopicCellMargin = 10;
 /** 精华-cell-文字内容的Y值 */
 CGFloat const MGTopicCellTextY = 55;
 /** 精华-cell-底部工具条 */
-CGFloat const MGTopicCellBottomBarH = 44;
+CGFloat const MGTopicCellBottomBarH = 35;
 
 /** 精华-cell-图片帖子显示的最大高度 */
 CGFloat const MGTopicCellPictureMaxH = 1000;
@@ -21,3 +21,6 @@ CGFloat const MGTopicCellPictureBreakH = 250;
 /** MGUser模型-性别属性值 */
 NSString *const MGUserSexMale = @"m";
 NSString *const MGUserSexFemale = @"f";
+
+/** 精华-cell-"最热评论"标题的高度 */
+CGFloat const MGTopicCellTopCmtTitleH = 20;

@@ -29,6 +29,9 @@
     
 //    MGLogFunc;
     
+//    self.tableView.separatorStyle
+//    self.tableView.visibleCells[0].selectionStyle
+    
 }
 
 - (void)settingClick

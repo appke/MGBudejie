@@ -44,6 +44,12 @@
 #pragma mark - 初始化子控制器
 - (void)setupChildVces
 {
+    MGTopicViewController *word = [[MGTopicViewController alloc] init];
+    word.title = @"段子";
+    word.type = MGTopicTypeWord;
+    [self addChildViewController:word];
+    
+    
     MGTopicViewController *video = [[MGTopicViewController alloc] init];
     video.title = @"视频";
     video.type = MGTopicTypeVideo;
@@ -58,11 +64,6 @@
     picture.title = @"图片";
     picture.type = MGTopicTypePicture;
     [self addChildViewController:picture];
-    
-    MGTopicViewController *word = [[MGTopicViewController alloc] init];
-    word.title = @"段子";
-    word.type = MGTopicTypeWord;
-    [self addChildViewController:word];
     
     // 先创建5个子控制器，他们的view是用到时才加上去的
     MGTopicViewController *all = [[MGTopicViewController alloc] init];
@@ -223,6 +224,4 @@
     NSInteger index = scrollView.contentOffset.x / scrollView.width;
     [self titleClicked:self.titlesView.subviews[index]];
 }
-
-
 @end

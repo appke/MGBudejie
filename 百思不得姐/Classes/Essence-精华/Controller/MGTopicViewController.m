@@ -13,6 +13,7 @@
 #import "MJRefresh.h"
 #import "MGTopic.h"
 #import "MGTopicCell.h"
+#import "MGCommentViewController.h"
 
 @interface MGTopicViewController ()
 /** 帖子数据 */
@@ -42,10 +43,8 @@ static NSString * const topicID = @"topic";
     // 初始化表格
     [self setupTableView];
     
-    
     // 添加刷新控件
     [self setupRefresh];
-    
 }
 
 #pragma mark - 初始化表格
@@ -56,7 +55,7 @@ static NSString * const topicID = @"topic";
     CGFloat bottom = self.tabBarController.tabBar.height;
     self.tableView.contentInset = UIEdgeInsetsMake(top, 0, bottom, 0);
     
-    // 表格演示设置
+    // 表格分割线样式
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     // 设置滚动条的内编剧
@@ -176,6 +175,15 @@ static NSString * const topicID = @"topic";
     cell.topic = self.topics[indexPath.row];
     
     return cell;
+}
+
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MGCommentViewController *commentVc = [[MGCommentViewController alloc] init];
+    commentVc.topic = self.topics[indexPath.row];
+    
+    [self.navigationController pushViewController:commentVc animated:YES];
 }
 
 #pragma mark - 表格代理方法 行高

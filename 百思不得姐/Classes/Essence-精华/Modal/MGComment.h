@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class MGUser;
+
 @interface MGComment : NSObject
 /** 音频文件的时长 */
 @property (nonatomic, assign) NSInteger voicetime;
