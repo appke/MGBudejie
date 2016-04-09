@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class MGComment;
+
 @interface MGTopic : NSObject
 
 /** 帖子id */
@@ -68,6 +69,9 @@
 @property (nonatomic, assign, readonly) CGRect videoF;
 
 /** 最热评论(期望这个数组中存放MGComment模型) */
-@property (nonatomic, strong) NSArray *top_cmt;
+//@property (nonatomic, strong) NSArray *top_cmt;
+
+/** 最热评论 模型属性 */
+@property (nonatomic, strong) MGComment *top_cmt;
 
 @end

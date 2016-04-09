@@ -23,7 +23,8 @@
              @"small_image" : @"image0",
              @"large_image" : @"image1",
              @"middle_image" : @"image2",
-             @"ID" : @"id"
+             @"ID" : @"id",
+             @"top_cmt" : @"top_cmt[0]"
              };
 }
 
@@ -124,10 +125,9 @@
         }
         
         // 计算最热评论的的高度
-        MGComment *cmt = [self.top_cmt firstObject];
-        if (cmt) { // 如果有
-            
-            NSString *content = [NSString stringWithFormat:@"%@ : %@", cmt.user.username, cmt.content];
+//        MGComment *cmt = [self.top_cmt firstObject];
+        if (self.top_cmt) { // 如果有
+            NSString *content = [NSString stringWithFormat:@"%@ : %@", self.top_cmt.user.username, self.top_cmt.content];
             CGFloat contentH = [content boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13] } context:nil].size.height;
             
             _cellHeight += contentH + MGTopicCellTopCmtTitleH + MGTopicCellMargin;

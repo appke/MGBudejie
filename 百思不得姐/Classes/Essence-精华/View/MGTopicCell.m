@@ -158,11 +158,11 @@
     }
     
     // 处理最热评
-    MGComment *cmt = [topic.top_cmt firstObject];
-    if (cmt) {
+//    MGComment *cmt = [topic.top_cmt firstObject];
+    if (topic.top_cmt) {
         self.topCmtView.hidden = NO;
         // 拼接用户名 : 评论内容
-        self.topCmtContentLabel.text = [NSString stringWithFormat:@"%@ : %@", cmt.user.username, cmt.content];
+        self.topCmtContentLabel.text = [NSString stringWithFormat:@"%@ : %@", topic.top_cmt.user.username, topic.top_cmt.content];
     } else {
         self.topCmtView.hidden = YES;
     }

@@ -65,7 +65,9 @@
 		CCBD3E2E1CB17850009D6171 /* MGComment.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBD3E2D1CB17850009D6171 /* MGComment.m */; };
 		CCEE3FA51CB8FF8F0079FEF4 /* MGCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEE3FA31CB8FF8F0079FEF4 /* MGCommentViewController.m */; };
 		CCEE3FA61CB8FF8F0079FEF4 /* MGCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCEE3FA41CB8FF8F0079FEF4 /* MGCommentViewController.xib */; };
-		CCEE3FA91CB963330079FEF4 /* MGTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEE3FA81CB963330079FEF4 /* MGTableViewHeaderFooterView.m */; };
+		CCEE3FA91CB963330079FEF4 /* MGCommentHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEE3FA81CB963330079FEF4 /* MGCommentHeaderView.m */; };
+		CCEE3FAD1CB9800E0079FEF4 /* MGCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEE3FAB1CB9800E0079FEF4 /* MGCommentCell.m */; };
+		CCEE3FAE1CB9800E0079FEF4 /* MGCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCEE3FAC1CB9800E0079FEF4 /* MGCommentCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,8 +181,11 @@
 		CCEE3FA21CB8FF8F0079FEF4 /* MGCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGCommentViewController.h; sourceTree = "<group>"; };
 		CCEE3FA31CB8FF8F0079FEF4 /* MGCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGCommentViewController.m; sourceTree = "<group>"; };
 		CCEE3FA41CB8FF8F0079FEF4 /* MGCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MGCommentViewController.xib; sourceTree = "<group>"; };
-		CCEE3FA71CB963330079FEF4 /* MGTableViewHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTableViewHeaderFooterView.h; sourceTree = "<group>"; };
-		CCEE3FA81CB963330079FEF4 /* MGTableViewHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGTableViewHeaderFooterView.m; sourceTree = "<group>"; };
+		CCEE3FA71CB963330079FEF4 /* MGCommentHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGCommentHeaderView.h; sourceTree = "<group>"; };
+		CCEE3FA81CB963330079FEF4 /* MGCommentHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGCommentHeaderView.m; sourceTree = "<group>"; };
+		CCEE3FAA1CB9800E0079FEF4 /* MGCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGCommentCell.h; sourceTree = "<group>"; };
+		CCEE3FAB1CB9800E0079FEF4 /* MGCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGCommentCell.m; sourceTree = "<group>"; };
+		CCEE3FAC1CB9800E0079FEF4 /* MGCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MGCommentCell.xib; sourceTree = "<group>"; };
 		ED6B25C618BA6DBC178A151E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -305,8 +310,11 @@
 				CC2D2F141CADC32E00371D81 /* MGTopicVoiceView.h */,
 				CC2D2F151CADC32E00371D81 /* MGTopicVoiceView.m */,
 				CC2D2F161CADC32E00371D81 /* MGTopicVoiceView.xib */,
-				CCEE3FA71CB963330079FEF4 /* MGTableViewHeaderFooterView.h */,
-				CCEE3FA81CB963330079FEF4 /* MGTableViewHeaderFooterView.m */,
+				CCEE3FA71CB963330079FEF4 /* MGCommentHeaderView.h */,
+				CCEE3FA81CB963330079FEF4 /* MGCommentHeaderView.m */,
+				CCEE3FAA1CB9800E0079FEF4 /* MGCommentCell.h */,
+				CCEE3FAB1CB9800E0079FEF4 /* MGCommentCell.m */,
+				CCEE3FAC1CB9800E0079FEF4 /* MGCommentCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -589,6 +597,7 @@
 				CC2D2F6D1CADC32E00371D81 /* MGTopicVoiceView.xib in Resources */,
 				CC2D2F651CADC32E00371D81 /* MGRecommendTagCell.xib in Resources */,
 				CC2D2F7A1CADC32E00371D81 /* MGRecommendUserCell.xib in Resources */,
+				CCEE3FAE1CB9800E0079FEF4 /* MGCommentCell.xib in Resources */,
 				CC2D2F721CADC32E00371D81 /* MGLoginRegisterViewController.xib in Resources */,
 				CC2D2F6B1CADC32E00371D81 /* MGTopicVideoView.xib in Resources */,
 				CC2D2F941CADC3A700371D81 /* Info.plist in Resources */,
@@ -681,10 +690,11 @@
 				CC2D2F621CADC32E00371D81 /* MGTopic.m in Sources */,
 				CC2D2F7B1CADC32E00371D81 /* MGTextField.m in Sources */,
 				CC2D2F8A1CADC32E00371D81 /* MGPushGuideView.m in Sources */,
-				CCEE3FA91CB963330079FEF4 /* MGTableViewHeaderFooterView.m in Sources */,
+				CCEE3FA91CB963330079FEF4 /* MGCommentHeaderView.m in Sources */,
 				CC2D2F871CADC32E00371D81 /* Foundation+Log.m in Sources */,
 				CC2D2F6C1CADC32E00371D81 /* MGTopicVoiceView.m in Sources */,
 				CC2D2F801CADC32E00371D81 /* NSDate+MGExtension.m in Sources */,
+				CCEE3FAD1CB9800E0079FEF4 /* MGCommentCell.m in Sources */,
 				CC2D2F791CADC32E00371D81 /* MGRecommendUserCell.m in Sources */,
 				CC2D2F6F1CADC32E00371D81 /* MGFriendTrendsViewController.m in Sources */,
 				CC2D2F641CADC32E00371D81 /* MGRecommendTagCell.m in Sources */,

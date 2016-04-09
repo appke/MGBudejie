@@ -13,15 +13,14 @@
 #import "MJRefresh.h"
 #import "AFNetworking.h"
 #import "MJExtension.h"
-
 #import "MGComment.h"
-
+#import "MGCommentHeaderView.h"
+#import "MGCommentCell.h"
 
 
 @interface MGCommentViewController () <UITableViewDelegate, UITableViewDataSource>
 /** 底部工具条和view的间距 */
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomSpace;
-
 /** 评论列表 */
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -29,8 +28,12 @@
 @property (nonatomic, strong) NSArray *hotComments;
 /** 最新评论-上拉可加载更多 */
 @property (nonatomic, strong) NSMutableArray *latesComments;
-
+/** 保存cell中最热评论-模型 */
+@property (nonatomic, strong) MGComment *saved_top_cmt;
 @end
+
+
+static NSString *const commentId = @"comment";
 
 @implementation MGCommentViewController
 
@@ -111,11 +114,19 @@
     MGLogFunc;
 }
 
+#pragma mark - 初始化
 - (void)setupHeader
 {
+    // 清空top_cmt数组
+    if (self.topic.top_cmt) {
+        self.saved_top_cmt = self.topic.top_cmt;
+        self.topic.top_cmt = nil;
+        
+        [self.topic setValue:@0 forKey:@"cellHeight"];
+    }
+    
     // 设置header
     UIView *header = [[UIView alloc] init];
-    
     // 直接返回一个topicCell
     MGTopicCell *cell = [MGTopicCell cell];
     
@@ -126,10 +137,8 @@
     
     // header的高度
     header.height = self.topic.cellHeight+ MGTopicCellMargin;
-    
 //    header.backgroundColor = [UIColor redColor];
     self.tableView.tableHeaderView = header;
-    
 }
 
 - (void)setupBase
@@ -142,8 +151,15 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
+    // 背景色
     self.tableView.backgroundColor = MGGlobalBg;
+    
+    // 注册表格
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([MGCommentCell class]) bundle:nil] forCellReuseIdentifier:commentId];
+    
+    // cell高度自动计算
+    self.tableView.estimatedRowHeight = 44;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 /**
@@ -174,8 +190,16 @@
     [self.view endEditing:YES];
 }
 
+#pragma mark - 销毁控制器
 - (void)dealloc
 {
+    // 恢复帖子的top_cmt
+    if (self.saved_top_cmt) {
+        
+        self.topic.top_cmt = self.saved_top_cmt;
+        [self.topic setValue:@0 forKey:@"cellHeight"];
+    }
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -219,26 +243,19 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    static NSString *ID = @"header";
     // 先从缓存池中找header
-    UITableViewHeaderFooterView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:ID];
-    if (header == nil) {
-        header = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:ID];
-        
-        // 创建label
-        UILabel *label = [[UILabel alloc] init];
-        label.textColor = MGRGBColor(67, 67, 67);
-//        label.font = [UIFont systemFontOfSize:14];
-        label.width = 200;
-        label.x = MGTopicCellMargin;
-        label.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-        
-        [header addSubview:label];
-    }
+    MGCommentHeaderView *header = [MGCommentHeaderView headerViewWithTableView:tableView];
     
     // 设置label数据
+    NSInteger hotCount = self.hotComments.count;
+    if (section == 0) { // 最热评论有没有，没有第0组就是最新评论
+        header.title = hotCount ? @"最热评论" : @"最新评论";
+    } else { // 非第0组
+        header.title = @"最新评论";
+    }
     
     return header;
+    
     
 //    // 创建头部
 //    UIView *header = [[UIView alloc] init];
@@ -280,15 +297,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // 1.创建cell
-    static NSString *ID = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
+    MGCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:commentId];
     
     // 2.设置cell的数据
     MGComment *comment  = [self commentsInSection:indexPath.section][indexPath.row];
-    cell.textLabel.text = comment.content;
+    cell.comment = comment;
     
     // 3.返回cell
     return cell;
