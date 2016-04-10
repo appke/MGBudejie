@@ -51,8 +51,9 @@
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
 
-//        [button sizeToFit];
-        button.size = CGSizeMake(60, 30);
+        [button sizeToFit];
+//        button.size = CGSizeMake(60, 30);
+        
         button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         button.contentEdgeInsets = UIEdgeInsetsMake(0, -8, 0, 0);
         

@@ -68,6 +68,7 @@
 		CCEE3FA91CB963330079FEF4 /* MGCommentHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEE3FA81CB963330079FEF4 /* MGCommentHeaderView.m */; };
 		CCEE3FAD1CB9800E0079FEF4 /* MGCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEE3FAB1CB9800E0079FEF4 /* MGCommentCell.m */; };
 		CCEE3FAE1CB9800E0079FEF4 /* MGCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCEE3FAC1CB9800E0079FEF4 /* MGCommentCell.xib */; };
+		CCFC8A601CBA97270015C613 /* MGTopWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC8A5F1CBA97270015C613 /* MGTopWindow.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +187,8 @@
 		CCEE3FAA1CB9800E0079FEF4 /* MGCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGCommentCell.h; sourceTree = "<group>"; };
 		CCEE3FAB1CB9800E0079FEF4 /* MGCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGCommentCell.m; sourceTree = "<group>"; };
 		CCEE3FAC1CB9800E0079FEF4 /* MGCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MGCommentCell.xib; sourceTree = "<group>"; };
+		CCFC8A5E1CBA97270015C613 /* MGTopWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTopWindow.h; sourceTree = "<group>"; };
+		CCFC8A5F1CBA97270015C613 /* MGTopWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGTopWindow.m; sourceTree = "<group>"; };
 		ED6B25C618BA6DBC178A151E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -461,6 +464,8 @@
 				CC2D2F561CADC32E00371D81 /* MGPushGuideView.xib */,
 				CC2D2F571CADC32E00371D81 /* MGTabBar.h */,
 				CC2D2F581CADC32E00371D81 /* MGTabBar.m */,
+				CCFC8A5E1CBA97270015C613 /* MGTopWindow.h */,
+				CCFC8A5F1CBA97270015C613 /* MGTopWindow.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -557,6 +562,7 @@
 				TargetAttributes = {
 					CC64D1D91C8E87EC00C7A44D = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = YEH9VENLMS;
 					};
 					CC64D1F21C8E87EC00C7A44D = {
 						CreatedOnToolsVersion = 7.2;
@@ -711,6 +717,7 @@
 				CC2D2F7E1CADC32E00371D81 /* MGNewViewController.m in Sources */,
 				CC2D2F761CADC32E00371D81 /* MGRecommendUser.m in Sources */,
 				CC2D2F661CADC32E00371D81 /* MGTopicCell.m in Sources */,
+				CCFC8A601CBA97270015C613 /* MGTopWindow.m in Sources */,
 				CC2D2F601CADC32E00371D81 /* MGTopicViewController.m in Sources */,
 				CC2D2F771CADC32E00371D81 /* MGRecommendCategoryCell.m in Sources */,
 			);
@@ -820,12 +827,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "百思不得姐/Classes/Other-其他/PrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mg.mglove;
 				PRODUCT_NAME = "百思不得姐";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -835,12 +845,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "百思不得姐/Classes/Other-其他/PrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mg.mglove;
 				PRODUCT_NAME = "百思不得姐";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

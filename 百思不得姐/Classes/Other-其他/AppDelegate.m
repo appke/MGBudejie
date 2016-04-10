@@ -9,14 +9,13 @@
 #import "AppDelegate.h"
 #import "MGTabBarController.h"
 #import "MGPushGuideView.h"
+#import "MGTopWindow.h"
+
 
 @interface AppDelegate ()
-
 @end
 
 @implementation AppDelegate
-
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // 创建窗口
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -30,6 +29,7 @@
     
     // 显示推送引导
     [MGPushGuideView show];
+
     
     return YES;
 }
@@ -50,6 +50,9 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    // 添加一个window,屏幕上的scrollView滚动到最顶部
+    [MGTopWindow show];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
