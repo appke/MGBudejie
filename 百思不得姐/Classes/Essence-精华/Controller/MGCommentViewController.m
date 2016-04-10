@@ -30,6 +30,11 @@
 @property (nonatomic, strong) NSMutableArray *latesComments;
 /** 保存cell中最热评论-模型 */
 @property (nonatomic, strong) MGComment *saved_top_cmt;
+/** 保存当前页码 */
+@property (nonatomic, assign) NSInteger page;
+
+/** 网络请求的manager */
+@property (nonatomic, strong) AFHTTPSessionManager *manager;
 @end
 
 
@@ -66,6 +71,14 @@ static NSString *const commentId = @"comment";
     [self setupRefresh];
 }
 
+- (AFHTTPSessionManager *)manager
+{
+    if (!_manager) {
+        _manager = [AFHTTPSessionManager manager];
+    }
+    return _manager;
+}
+
 /**
  *  继承刷新控件
  */
@@ -76,30 +89,40 @@ static NSString *const commentId = @"comment";
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreComments)];
     
     [self.tableView.mj_header beginRefreshing];
-//    self.tableView.mj_footer.hidden = YES;
+    self.tableView.mj_footer.hidden = YES;
 }
 
 #pragma mark - 数据加载
 - (void)loadNewComments
 {
+    // 结束之前所有请求
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] =  @"dataList";
     params[@"c"] = @"comment";
     params[@"data_id"] = self.topic.ID;
     params[@"hot"] = @1; // 最热评论
     
-    [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
 //        [responseObject writeToFile:@"/Users/MG/Desktop/comments.plist" atomically:YES];
         self.hotComments = [MGComment mj_objectArrayWithKeyValuesArray:responseObject[@"hot"]];
-        
         self.latesComments = [MGComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         
-        
+        // 页码
+        self.page = 1;
         // 刷新表格
         [self.tableView reloadData];
-        
         [self.tableView.mj_header endRefreshing];
+        
+        // 控制footer的状态
+        NSInteger total = [responseObject[@"total"] integerValue];
+        if (self.latesComments.count >= total) { // 没有跟多数据数据,过期了
+//            [self.tableView.mj_footer endRefreshingWithNoMoreData]; // 提示没有更多数据
+            self.tableView.mj_footer.hidden = YES;
+        }
+    
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
         [self.tableView.mj_header endRefreshing];
@@ -111,7 +134,45 @@ static NSString *const commentId = @"comment";
  */
 - (void)loadMoreComments
 {
-    MGLogFunc;
+    // 结束之前所有请求
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    
+    NSInteger page = self.page + 1;
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] =  @"dataList";
+    params[@"c"] = @"comment";
+    params[@"data_id"] = self.topic.ID;
+    params[@"page"] = @(page);
+    MGComment *lastComment = [self.latesComments lastObject];
+    params[@"lastcid"] = lastComment.ID;
+    
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        //        [responseObject writeToFile:@"/Users/MG/Desktop/comments.plist" atomically:YES];
+        NSArray *newComments = [MGComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        
+        [self.latesComments addObjectsFromArray:newComments];
+        
+        // 页码处理
+        self.page = page;
+    
+        // 刷新表格
+        [self.tableView reloadData];
+        
+        // 控制footer的状态
+        NSInteger total = [responseObject[@"total"] integerValue];
+        if (self.latesComments.count >= total) { // 没有跟多数据数据,过期了
+            self.tableView.mj_footer.hidden = YES;
+        } else {
+            [self.tableView.mj_footer endRefreshing];
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        [self.tableView.mj_footer endRefreshing];
+    }];
+    
 }
 
 #pragma mark - 初始化
@@ -160,6 +221,12 @@ static NSString *const commentId = @"comment";
     // cell高度自动计算
     self.tableView.estimatedRowHeight = 44;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    // 表格分割线
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    // 内边距
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, MGTopicCellMargin, 0);
 }
 
 /**
@@ -193,6 +260,9 @@ static NSString *const commentId = @"comment";
 #pragma mark - 销毁控制器
 - (void)dealloc
 {
+    // 取消所有任务
+    [self.manager invalidateSessionCancelingTasks:YES];
+    
     // 恢复帖子的top_cmt
     if (self.saved_top_cmt) {
         
@@ -220,6 +290,9 @@ static NSString *const commentId = @"comment";
 {
     NSInteger hotCount = self.hotComments.count;
     NSInteger latestCount = self.latesComments.count;
+    
+    // 隐藏尾部控件
+    tableView.mj_footer.hidden = (latestCount == 0);
     
     if (section == 0) { // 最热评论有没有，没有第0组就是最新评论
         return hotCount ? hotCount : latestCount;
@@ -294,14 +367,26 @@ static NSString *const commentId = @"comment";
     return self.latesComments;
 }
 
+/**
+ *  返回indexPath的comment模型
+ */
+- (MGComment *)commentInIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        return self.hotComments.count? self.hotComments[indexPath.row]: self.latesComments[indexPath.row];
+    }
+    // 非第0组
+    return self.latesComments[indexPath.row];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // 1.创建cell
     MGCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:commentId];
     
     // 2.设置cell的数据
-    MGComment *comment  = [self commentsInSection:indexPath.section][indexPath.row];
-    cell.comment = comment;
+//    MGComment *comment  = [self commentsInSection:indexPath.section][indexPath.row];
+    cell.comment = [self commentInIndexPath:indexPath];
     
     // 3.返回cell
     return cell;

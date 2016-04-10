@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *likeCountLabel;
+@property (weak, nonatomic) IBOutlet UIButton *voiceButton;
 
 @end
 
@@ -24,7 +25,10 @@
 @implementation MGCommentCell
 
 - (void)awakeFromNib {
-    // Initialization code
+
+    UIImageView *bgImageView = [[UIImageView alloc] init];
+    bgImageView.image = [UIImage imageNamed:@"mainCellBackground"];
+    self.backgroundView = bgImageView;
 }
 
 
@@ -38,6 +42,22 @@
     self.likeCountLabel.text = [NSString stringWithFormat:@"%zd", comment.like_count];
     
     self.contentLabel.text = comment.content;
+    
+    if (comment.voiceuri.length) {
+        self.voiceButton.hidden = NO;
+        [self.voiceButton setTitle:[NSString stringWithFormat:@"%zd''", comment.voicetime] forState:UIControlStateNormal];
+    } else {
+        self.voiceButton.hidden = YES;
+    }
+}
+
+
+- (void)setFrame:(CGRect)frame
+{
+    frame.origin.x = MGTopicCellMargin;
+    frame.size.width = MGScreenW - 2 * MGTopicCellMargin;
+    
+    [super setFrame:frame];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -45,5 +65,6 @@
 
     // Configure the view for the selected state
 }
+
 
 @end

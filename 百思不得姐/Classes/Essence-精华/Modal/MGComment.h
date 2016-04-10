@@ -10,8 +10,15 @@
 @class MGUser;
 
 @interface MGComment : NSObject
+
+/** 评论id */
+@property (nonatomic, copy) NSString *ID;
+
 /** 音频文件的时长 */
 @property (nonatomic, assign) NSInteger voicetime;
+/** 音频的uri */
+@property (nonatomic, copy) NSString *voiceuri;
+
 /** 评论的文字内容 */
 @property (nonatomic, copy) NSString *content;
 /** 被点赞的数量 */

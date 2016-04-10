@@ -19,17 +19,17 @@
 {
     if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
         
+        self.contentView.backgroundColor = MGGlobalBg;
         // 创建label
         UILabel *label = [[UILabel alloc] init];
         _label = label;
         label.textColor = MGRGBColor(67, 67, 67);
-//                label.font = [UIFont systemFontOfSize:14];
+        label.font = [UIFont systemFontOfSize:15];
         label.width = 200;
         label.x = MGTopicCellMargin;
         label.autoresizingMask = UIViewAutoresizingFlexibleHeight;
         
-        [self addSubview:label];
-        
+        [self.contentView addSubview:label];
     }
     return self;
 }
