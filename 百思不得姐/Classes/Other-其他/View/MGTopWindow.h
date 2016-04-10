@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface MGTopWindow : NSObject
-
+/**
+ *  显示窗口
+ */
 + (void)show;
+/**
+ *  隐藏窗口
+ */
++ (void)hide;
 @end

@@ -165,7 +165,7 @@ static UIWindow *window_;
             [anim setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
 
 //                MGRootView.userInteractionEnabled = YES;
-                [self removeFromSuperview];
+//                [self removeFromSuperview];
                 // 销毁窗口
                 window_.hidden = YES;
                 window_ = nil;
@@ -173,6 +173,7 @@ static UIWindow *window_;
                 //            if (completionBlock) {
                 //                completionBlock();
                 //            }
+
                 // 装逼写法
                 !completionBlock ? :completionBlock();
             }];

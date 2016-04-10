@@ -7,13 +7,14 @@
 //
 
 #import "MGLoginRegisterViewController.h"
+#import "MGTopWindow.h"
 
 @interface MGLoginRegisterViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *bgView;
 
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
-//**///////////////////////////
+
 /** 登录框 距离 控制器view 左边的间距 */
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginViewLeftMargin;
 @end
@@ -31,7 +32,6 @@
     
 //    NSMutableAttributedString
 
-    
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle
@@ -65,6 +65,22 @@
 
 - (IBAction)back {
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    [MGTopWindow show];
+}
+
+/**
+ *  不要一下子就变白
+ *
+ *  @param animated <#animated description#>
+ */
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+//    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    [MGTopWindow hide];
 }
 
 

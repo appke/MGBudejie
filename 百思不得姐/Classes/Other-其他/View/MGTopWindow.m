@@ -49,15 +49,17 @@ static UIWindow *window_;
 //        CGRect newFrame = [subView.superview convertRect:subView.frame toView:nil];
         
         // 从原来的从原来的坐标系, 转成UIWindow的
+        // 得到subView在窗口中的frame
         CGRect newFrame = [[UIApplication sharedApplication].keyWindow convertRect:subView.frame fromView:subView.superview];
-
+        CGRect winBounds = [UIApplication sharedApplication].keyWindow.frame;
         // 两个矩形框有没有交叉
-        CGRectIntersectsRect([UIApplication sharedApplication].keyWindow.frame, newFrame);
+        
+        BOOL isShowingOnWindow = (subView.window == [UIApplication sharedApplication].keyWindow) && !subView.hidden && subView.alpha > 0.01 && CGRectIntersectsRect(winBounds, newFrame);
         
         //CGRectIntersectsRect([UIApplication sharedApplication].keyWindow.frame, );
         
         // 如果是scrollView, 滚动到最顶部
-        if ([subView isKindOfClass:[UIScrollView class]] && CGRectIntersectsRect([UIApplication sharedApplication].keyWindow.frame, newFrame)) {
+        if ([subView isKindOfClass:[UIScrollView class]] && isShowingOnWindow) {
             CGPoint offset = subView.contentOffset;
             offset.y = -subView.contentInset.top;
             [subView setContentOffset:offset animated:YES];
@@ -68,10 +70,14 @@ static UIWindow *window_;
     }
 }
 
-
 + (void)show
 {
     window_.hidden = NO;
+}
+
++ (void)hide
+{
+    window_.hidden = YES;
 }
 
 @end

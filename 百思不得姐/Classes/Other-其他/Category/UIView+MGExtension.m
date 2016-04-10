@@ -94,4 +94,18 @@
     return self.center.y;
 }
 
+- (BOOL)isShowingInKeyWindow
+{
+    // 主窗口
+    UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+    
+    // 以主窗口的坐标原点, 计算self的矩形框
+    CGRect newFrame = [keyWindow convertRect:self.frame fromView:self.superview];
+    CGRect winBounds = keyWindow.bounds;
+    // 主窗口的bounds 和 self 的矩形框 是否有重叠
+    BOOL intersects = CGRectIntersectsRect(newFrame, winBounds);
+    
+    return !self.hidden && self.alpha > 0.01 && intersects && self.window == keyWindow;
+}
+
 @end
