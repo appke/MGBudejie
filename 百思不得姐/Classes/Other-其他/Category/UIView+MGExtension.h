@@ -24,7 +24,8 @@
 /** 中心点y值 */
 @property (nonatomic, assign) CGFloat centerY;
 
-
+/** 是否显示在主窗口 */
+- (BOOL)isShowingInKeyWindow;
 - (BOOL)isShowingInKeyWindow;
 
 @end

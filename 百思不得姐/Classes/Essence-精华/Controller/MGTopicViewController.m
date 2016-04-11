@@ -25,6 +25,10 @@
 @property (nonatomic, copy) NSString *maxtime;
 /** 上一次的请求参数 */
 @property (nonatomic, strong) NSDictionary *params;
+
+/** 上一次选中的索引 */
+@property (nonatomic, assign) NSInteger lastSelectedIndex;
+
 @end
 
 static NSString * const topicID = @"topic";
@@ -63,6 +67,19 @@ static NSString * const topicID = @"topic";
     self.tableView.backgroundColor = [UIColor clearColor];
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([MGTopicCell class]) bundle:nil] forCellReuseIdentifier:topicID];
+    
+    // 监听tabbar点击的通知
+    [MGNoticeCenter addObserver:self selector:@selector(tabBarSelect) name:MGTabBarDidSelectNotification object:nil];
+}
+
+- (void)tabBarSelect
+{
+    // 如果是连续点2次, 控制器的view在窗口上
+    if (self.lastSelectedIndex == self.tabBarController.selectedIndex && self.view.isShowingInKeyWindow) {
+        [self.tableView.mj_header beginRefreshing];
+    }
+    
+    self.lastSelectedIndex = self.tabBarController.selectedIndex;
 }
 
 

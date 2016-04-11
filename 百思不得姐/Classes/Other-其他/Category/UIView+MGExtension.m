@@ -94,6 +94,9 @@
     return self.center.y;
 }
 
+/**
+ *  是否显示在主窗口
+ */
 - (BOOL)isShowingInKeyWindow
 {
     // 主窗口

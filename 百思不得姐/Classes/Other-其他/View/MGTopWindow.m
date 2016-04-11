@@ -59,7 +59,7 @@ static UIWindow *window_;
         //CGRectIntersectsRect([UIApplication sharedApplication].keyWindow.frame, );
         
         // 如果是scrollView, 滚动到最顶部
-        if ([subView isKindOfClass:[UIScrollView class]] && isShowingOnWindow) {
+        if ([subView isKindOfClass:[UIScrollView class]] && [subView isShowingInKeyWindow]) {
             CGPoint offset = subView.contentOffset;
             offset.y = -subView.contentInset.top;
             [subView setContentOffset:offset animated:YES];

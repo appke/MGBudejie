@@ -12,7 +12,7 @@
 #import "MGTopWindow.h"
 
 
-@interface AppDelegate ()
+@interface AppDelegate () <UITabBarControllerDelegate>
 @end
 
 @implementation AppDelegate
@@ -22,7 +22,9 @@
     self.window.backgroundColor = [UIColor redColor];
     
     // 设置窗口的根控制器
-    self.window.rootViewController = [[MGTabBarController alloc] init];
+    MGTabBarController *tabBarController = [[MGTabBarController alloc] init];;
+    self.window.rootViewController = tabBarController;
+//    tabBarController.delegate = self;
     
     // 显示窗口
     [self.window makeKeyAndVisible];
@@ -30,7 +32,6 @@
     // 显示推送引导
     [MGPushGuideView show];
 
-    
     return YES;
 }
 
@@ -52,11 +53,18 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
     // 添加一个window,屏幕上的scrollView滚动到最顶部
-//    [MGTopWindow show];
+    [MGTopWindow show];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - tabBarController的代理方法
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    // 发出一个通知
+    [[NSNotificationCenter defaultCenter] postNotificationName:MGTabBarDidSelectNotification object:nil userInfo:nil];
 }
 
 @end

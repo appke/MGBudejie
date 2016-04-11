@@ -59,6 +59,9 @@
 {
     [super layoutSubviews];
     
+    // 标记按钮是否已经添加过监听器
+    static BOOL added = NO;
+    
     // 设置发布按钮的frame
 //    self.publishButton.width = self.publishButton.currentBackgroundImage.size.width;
 //    self.publishButton.height =self.publishButton.currentBackgroundImage.size.height;
@@ -71,9 +74,9 @@
     CGFloat buttonH = self.height;
     NSInteger index = 0;
     
-    for (UIView *button in self.subviews) {
+    for (UIControl *button in self.subviews) {
         
-//        if (![button isKindOfClass:NSClassFromString(@"UITabBarButton")]) continue;
+        // 只有四个按钮, 发布按钮不算
         if (![button isKindOfClass:[UIControl class]] || button == self.publishButton) continue;
 
         // 计算按钮的x值
@@ -82,7 +85,19 @@
         
         // 增加索引
         index++;
+        
+        if (added == NO) {
+            // 监听按钮点击
+            [button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+        }
     }
+    added = YES;
+}
+
+- (void)buttonClick
+{
+    // 发一个通知
+    [MGNoticeCenter postNotificationName:MGTabBarDidSelectNotification object:nil userInfo:nil];
 }
 
 @end

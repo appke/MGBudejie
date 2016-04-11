@@ -16,6 +16,7 @@
 #import "UIImage+MGExtension.h"
 #import "UIImageView+MGExtension.h"
 
+#define MGNoticeCenter [NSNotificationCenter defaultCenter]
 
 #ifdef DEBUG
 #define MGLog(...) NSLog(__VA_ARGS__)

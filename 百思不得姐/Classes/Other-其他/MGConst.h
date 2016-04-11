@@ -33,3 +33,10 @@ UIKIT_EXTERN NSString *const MGUserSexFemale;
 
 /** 精华-cell-"最热评论"标题的高度 */
 UIKIT_EXTERN CGFloat const MGTopicCellTopCmtTitleH;
+
+/** tabBar被选中的通知名称 */
+UIKIT_EXTERN NSString *const MGTabBarDidSelectNotification;
+/** tabBar被选中的通知 - 被选中控制器的索引 */
+UIKIT_EXTERN NSString *const MGSelectedControllerIndexKey;
+/** tabBar被选中的通知名称 - 被选中控制器 */
+UIKIT_EXTERN NSString *const MGSelectedControllerKey;
