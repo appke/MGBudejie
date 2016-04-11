@@ -244,8 +244,8 @@
 			isa = PBXGroup;
 			children = (
 				CC2D2EF51CADC32E00371D81 /* Essence-精华 */,
-				CC2D2F341CADC32E00371D81 /* Me-我 */,
 				CC2D2F381CADC32E00371D81 /* New-新帖 */,
+				CC2D2F341CADC32E00371D81 /* Me-我 */,
 				CC2D2F191CADC32E00371D81 /* FriendTrends-关注 */,
 				CC2D2F3C1CADC32E00371D81 /* Other-其他 */,
 			);

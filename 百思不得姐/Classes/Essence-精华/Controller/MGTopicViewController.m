@@ -14,6 +14,7 @@
 #import "MGTopic.h"
 #import "MGTopicCell.h"
 #import "MGCommentViewController.h"
+#import "MGNewViewController.h"
 
 @interface MGTopicViewController ()
 /** 帖子数据 */
@@ -98,6 +99,13 @@ static NSString * const topicID = @"topic";
     
 }
 
+#pragma mark - 返回不同参数
+- (NSString *)a {
+    // topic控制器，都是当前控制的的儿子
+    return [self.parentViewController isKindOfClass:[MGNewViewController class]] ? @"newlist" : @"list";
+}
+
+
 #pragma mark - 数据处理
 /**
  *  加载新的帖子数据
@@ -109,7 +117,7 @@ static NSString * const topicID = @"topic";
     self.page = 0;
     // 参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"a"] = @"list";
+    params[@"a"] = self.a;
     params[@"c"] = @"data";
     params[@"type"] = @(self.type);
     self.params = params;
@@ -151,7 +159,7 @@ static NSString * const topicID = @"topic";
     self.page++;
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"a"] = @"list";
+    params[@"a"] = self.a;
     params[@"c"] = @"data";
     params[@"type"] = @(self.type);
     params[@"page"] = @(self.page);

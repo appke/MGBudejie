@@ -106,6 +106,8 @@ static NSString *const commentId = @"comment";
     
     [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
+        MGLog(@"%@---%@", [responseObject class], responseObject);
+        
 //        [responseObject writeToFile:@"/Users/MG/Desktop/comments.plist" atomically:YES];
         self.hotComments = [MGComment mj_objectArrayWithKeyValuesArray:responseObject[@"hot"]];
         self.latesComments = [MGComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MGEssenceViewController.h"
 
-@interface MGNewViewController : UIViewController
+@interface MGNewViewController : MGEssenceViewController
 
 @end
