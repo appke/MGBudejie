@@ -248,15 +248,6 @@ static NSString *const commentId = @"comment";
     }];
 }
 
-/**
- *  拖拽隐藏键盘
- *  稍微动一下, 就调用，scrollView太频繁了
- */
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
-    [self.view endEditing:YES];
-}
-
 #pragma mark - 销毁控制器
 - (void)dealloc
 {
@@ -391,4 +382,66 @@ static NSString *const commentId = @"comment";
     // 3.返回cell
     return cell;
 }
+
+/**
+ *  拖拽隐藏键盘
+ *  稍微动一下, 就调用，scrollView太频繁了
+ */
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    UIMenuController *menu = [UIMenuController sharedMenuController];
+    [menu setMenuVisible:NO animated:YES];
+    
+    [self.view endEditing:YES];
+}
+
+#pragma mark - 点击cell的事件
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIMenuController *menu = [UIMenuController sharedMenuController];
+    if (menu.isMenuVisible) {
+        [menu setMenuVisible:NO animated:YES];
+        return;
+    }
+    
+    // 被点击的cell
+    MGCommentCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell becomeFirstResponder];
+    
+    // 显示menuController
+    UIMenuItem *ding = [[UIMenuItem alloc] initWithTitle:@"顶" action:@selector(ding:)];
+    UIMenuItem *replay = [[UIMenuItem alloc] initWithTitle:@"回复" action:@selector(replay:)];
+    UIMenuItem *report = [[UIMenuItem alloc] initWithTitle:@"举报" action:@selector(report:)];
+    menu.menuItems = @[ding, replay, report];
+    
+    CGRect rect = CGRectMake(0, cell.height * 0.5, cell.width, cell.height * 0.5);
+    [menu setTargetRect:rect inView:cell];
+    [menu setMenuVisible:YES animated:YES];
+}
+
+#pragma mark - 处理menuItem
+- (void)ding:(UIMenuController *)menu
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    MGComment *comment = [self commentInIndexPath:indexPath];
+    
+    NSLog(@"%s--%@", __func__, comment.content);
+}
+
+- (void)replay:(UIMenuController *)menu
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    MGComment *comment = [self commentInIndexPath:indexPath];
+    
+    NSLog(@"%s--%@", __func__, comment.content);
+}
+
+- (void)report:(UIMenuController *)menu
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    MGComment *comment = [self commentInIndexPath:indexPath];
+    
+    NSLog(@"%s--%@", __func__, comment.content);
+}
+
 @end

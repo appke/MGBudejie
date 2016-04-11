@@ -18,11 +18,20 @@
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *likeCountLabel;
 @property (weak, nonatomic) IBOutlet UIButton *voiceButton;
-
 @end
 
-
 @implementation MGCommentCell
+
+#pragma mark - 能成为第一响应者
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender
+{
+    return NO;
+}
 
 - (void)awakeFromNib {
 
