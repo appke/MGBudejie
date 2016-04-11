@@ -13,7 +13,10 @@
 - (instancetype)circleImage
 {
     // 开启上下文
-    UIGraphicsBeginImageContext(self.size);
+//    UIGraphicsBeginImageContext(self.size);
+    // NO代表透明
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0);
+    // 获得上下文
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     // 画圆

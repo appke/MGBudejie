@@ -49,9 +49,6 @@
 
 /**
  *  监听cell的选中和取消选中
- *
- *  @param selected <#selected description#>
- *  @param animated <#animated description#>
  */
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {

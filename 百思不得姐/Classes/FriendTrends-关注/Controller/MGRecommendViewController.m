@@ -232,14 +232,13 @@ static NSString *const userID = @"user";
     
     // 检测footer的状态
     [self checkFooterSate];
-    // 左边用户表格
+    // 右边用户表格
     return [MGSelectedCategory users].count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (tableView == self.categoryTableView) {
-        // 左边类别表格
+    if (tableView == self.categoryTableView) { // 左边类别表格
         // 1.创建cell
         MGRecommendCategoryCell *cell = [tableView dequeueReusableCellWithIdentifier:categoryID];
         // 2.设置cell的数据

@@ -63,6 +63,7 @@
 		CC3B1F1A1CB4321100BE8324 /* UIImage+MGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3B1F191CB4321100BE8324 /* UIImage+MGExtension.m */; };
 		CCBD3E2B1CB17645009D6171 /* MGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBD3E2A1CB17645009D6171 /* MGUser.m */; };
 		CCBD3E2E1CB17850009D6171 /* MGComment.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBD3E2D1CB17850009D6171 /* MGComment.m */; };
+		CCE9BBB31CBBF2DE00C4EC1A /* UIImageView+MGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE9BBB21CBBF2DE00C4EC1A /* UIImageView+MGExtension.m */; };
 		CCEE3FA51CB8FF8F0079FEF4 /* MGCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEE3FA31CB8FF8F0079FEF4 /* MGCommentViewController.m */; };
 		CCEE3FA61CB8FF8F0079FEF4 /* MGCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCEE3FA41CB8FF8F0079FEF4 /* MGCommentViewController.xib */; };
 		CCEE3FA91CB963330079FEF4 /* MGCommentHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEE3FA81CB963330079FEF4 /* MGCommentHeaderView.m */; };
@@ -179,6 +180,8 @@
 		CCBD3E2A1CB17645009D6171 /* MGUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGUser.m; sourceTree = "<group>"; };
 		CCBD3E2C1CB17850009D6171 /* MGComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGComment.h; sourceTree = "<group>"; };
 		CCBD3E2D1CB17850009D6171 /* MGComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGComment.m; sourceTree = "<group>"; };
+		CCE9BBB11CBBF2DE00C4EC1A /* UIImageView+MGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+MGExtension.h"; sourceTree = "<group>"; };
+		CCE9BBB21CBBF2DE00C4EC1A /* UIImageView+MGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+MGExtension.m"; sourceTree = "<group>"; };
 		CCEE3FA21CB8FF8F0079FEF4 /* MGCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGCommentViewController.h; sourceTree = "<group>"; };
 		CCEE3FA31CB8FF8F0079FEF4 /* MGCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGCommentViewController.m; sourceTree = "<group>"; };
 		CCEE3FA41CB8FF8F0079FEF4 /* MGCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MGCommentViewController.xib; sourceTree = "<group>"; };
@@ -438,6 +441,8 @@
 				CC2D2F451CADC32E00371D81 /* UIView+MGExtension.m */,
 				CC3B1F181CB4321100BE8324 /* UIImage+MGExtension.h */,
 				CC3B1F191CB4321100BE8324 /* UIImage+MGExtension.m */,
+				CCE9BBB11CBBF2DE00C4EC1A /* UIImageView+MGExtension.h */,
+				CCE9BBB21CBBF2DE00C4EC1A /* UIImageView+MGExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -691,6 +696,7 @@
 				CC2D2F881CADC32E00371D81 /* main.m in Sources */,
 				CC2D2F5C1CADC32E00371D81 /* MGEssenceViewController.m in Sources */,
 				CCEE3FA51CB8FF8F0079FEF4 /* MGCommentViewController.m in Sources */,
+				CCE9BBB31CBBF2DE00C4EC1A /* UIImageView+MGExtension.m in Sources */,
 				CC2D2F631CADC32E00371D81 /* MGProgressView.m in Sources */,
 				CC2D2F611CADC32E00371D81 /* MGRecommendTag.m in Sources */,
 				CC2D2F621CADC32E00371D81 /* MGTopic.m in Sources */,

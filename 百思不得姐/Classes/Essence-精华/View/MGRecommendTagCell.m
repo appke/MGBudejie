@@ -25,10 +25,11 @@
 {
     _recommendTag = recommendTag;
     
-    [self.imageListImageView sd_setImageWithURL:[NSURL URLWithString:recommendTag.image_list] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        if (image == nil) return;
-        self.imageListImageView.image = [image circleImage];
-    }];
+//    [self.imageListImageView sd_setImageWithURL:[NSURL URLWithString:recommendTag.image_list] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+//        if (image == nil) return;
+//        self.imageListImageView.image = [image circleImage];
+//    }];
+    [self.imageListImageView setHeader:recommendTag.image_list];
     
 //    [self.imageListImageView sd_setImageWithURL:[NSURL URLWithString:recommendTag.image_list] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
     

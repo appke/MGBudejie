@@ -13,6 +13,8 @@
 #import "UIBarButtonItem+MGExtension.h"
 #import "MGConst.h"
 #import "NSDate+MGExtension.h"
+#import "UIImage+MGExtension.h"
+#import "UIImageView+MGExtension.h"
 
 
 #ifdef DEBUG

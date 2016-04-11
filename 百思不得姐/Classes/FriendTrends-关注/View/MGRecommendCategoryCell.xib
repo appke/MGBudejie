@@ -22,10 +22,10 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lr8-kM-Wka" userLabel="左边红色选中控件">
-                        <rect key="frame" x="0.0" y="0.0" width="5" height="43"/>
+                        <rect key="frame" x="0.0" y="0.0" width="3" height="43"/>
                         <color key="backgroundColor" red="0.1058823529" green="0.68627450980000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="5" id="eR1-K8-ccH"/>
+                            <constraint firstAttribute="width" constant="3" id="eR1-K8-ccH"/>
                         </constraints>
                     </view>
                 </subviews>
