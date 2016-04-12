@@ -64,6 +64,10 @@
 		CCBD3E2B1CB17645009D6171 /* MGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBD3E2A1CB17645009D6171 /* MGUser.m */; };
 		CCBD3E2E1CB17850009D6171 /* MGComment.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBD3E2D1CB17850009D6171 /* MGComment.m */; };
 		CCE9BBB31CBBF2DE00C4EC1A /* UIImageView+MGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE9BBB21CBBF2DE00C4EC1A /* UIImageView+MGExtension.m */; };
+		CCE9BBB71CBCEF9300C4EC1A /* MGMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE9BBB61CBCEF9300C4EC1A /* MGMeCell.m */; };
+		CCE9BBBA1CBCFBE300C4EC1A /* MGMeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE9BBB91CBCFBE300C4EC1A /* MGMeFooterView.m */; };
+		CCE9BBBE1CBD512B00C4EC1A /* MGSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE9BBBD1CBD512B00C4EC1A /* MGSquare.m */; };
+		CCE9BBC11CBD5D9E00C4EC1A /* MGSquareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE9BBC01CBD5D9E00C4EC1A /* MGSquareButton.m */; };
 		CCEE3FA51CB8FF8F0079FEF4 /* MGCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEE3FA31CB8FF8F0079FEF4 /* MGCommentViewController.m */; };
 		CCEE3FA61CB8FF8F0079FEF4 /* MGCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCEE3FA41CB8FF8F0079FEF4 /* MGCommentViewController.xib */; };
 		CCEE3FA91CB963330079FEF4 /* MGCommentHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEE3FA81CB963330079FEF4 /* MGCommentHeaderView.m */; };
@@ -182,6 +186,14 @@
 		CCBD3E2D1CB17850009D6171 /* MGComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGComment.m; sourceTree = "<group>"; };
 		CCE9BBB11CBBF2DE00C4EC1A /* UIImageView+MGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+MGExtension.h"; sourceTree = "<group>"; };
 		CCE9BBB21CBBF2DE00C4EC1A /* UIImageView+MGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+MGExtension.m"; sourceTree = "<group>"; };
+		CCE9BBB51CBCEF9300C4EC1A /* MGMeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGMeCell.h; sourceTree = "<group>"; };
+		CCE9BBB61CBCEF9300C4EC1A /* MGMeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGMeCell.m; sourceTree = "<group>"; };
+		CCE9BBB81CBCFBE300C4EC1A /* MGMeFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGMeFooterView.h; sourceTree = "<group>"; };
+		CCE9BBB91CBCFBE300C4EC1A /* MGMeFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGMeFooterView.m; sourceTree = "<group>"; };
+		CCE9BBBC1CBD512B00C4EC1A /* MGSquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSquare.h; sourceTree = "<group>"; };
+		CCE9BBBD1CBD512B00C4EC1A /* MGSquare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSquare.m; sourceTree = "<group>"; };
+		CCE9BBBF1CBD5D9E00C4EC1A /* MGSquareButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSquareButton.h; sourceTree = "<group>"; };
+		CCE9BBC01CBD5D9E00C4EC1A /* MGSquareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSquareButton.m; sourceTree = "<group>"; };
 		CCEE3FA21CB8FF8F0079FEF4 /* MGCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGCommentViewController.h; sourceTree = "<group>"; };
 		CCEE3FA31CB8FF8F0079FEF4 /* MGCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGCommentViewController.m; sourceTree = "<group>"; };
 		CCEE3FA41CB8FF8F0079FEF4 /* MGCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MGCommentViewController.xib; sourceTree = "<group>"; };
@@ -383,6 +395,8 @@
 			isa = PBXGroup;
 			children = (
 				CC2D2F351CADC32E00371D81 /* Controller */,
+				CCE9BBBB1CBD4EDC00C4EC1A /* Model */,
+				CCE9BBB41CBCEF7800C4EC1A /* View */,
 			);
 			path = "Me-我";
 			sourceTree = "<group>";
@@ -512,6 +526,28 @@
 				CC64D1F31C8E87EC00C7A44D /* 百思不得姐.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		CCE9BBB41CBCEF7800C4EC1A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CCE9BBB51CBCEF9300C4EC1A /* MGMeCell.h */,
+				CCE9BBB61CBCEF9300C4EC1A /* MGMeCell.m */,
+				CCE9BBB81CBCFBE300C4EC1A /* MGMeFooterView.h */,
+				CCE9BBB91CBCFBE300C4EC1A /* MGMeFooterView.m */,
+				CCE9BBBF1CBD5D9E00C4EC1A /* MGSquareButton.h */,
+				CCE9BBC01CBD5D9E00C4EC1A /* MGSquareButton.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CCE9BBBB1CBD4EDC00C4EC1A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CCE9BBBC1CBD512B00C4EC1A /* MGSquare.h */,
+				CCE9BBBD1CBD512B00C4EC1A /* MGSquare.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -698,6 +734,7 @@
 				CCEE3FA51CB8FF8F0079FEF4 /* MGCommentViewController.m in Sources */,
 				CCE9BBB31CBBF2DE00C4EC1A /* UIImageView+MGExtension.m in Sources */,
 				CC2D2F631CADC32E00371D81 /* MGProgressView.m in Sources */,
+				CCE9BBB71CBCEF9300C4EC1A /* MGMeCell.m in Sources */,
 				CC2D2F611CADC32E00371D81 /* MGRecommendTag.m in Sources */,
 				CC2D2F621CADC32E00371D81 /* MGTopic.m in Sources */,
 				CC2D2F7B1CADC32E00371D81 /* MGTextField.m in Sources */,
@@ -705,6 +742,9 @@
 				CCEE3FA91CB963330079FEF4 /* MGCommentHeaderView.m in Sources */,
 				CC2D2F871CADC32E00371D81 /* Foundation+Log.m in Sources */,
 				CC2D2F6C1CADC32E00371D81 /* MGTopicVoiceView.m in Sources */,
+				CCE9BBBA1CBCFBE300C4EC1A /* MGMeFooterView.m in Sources */,
+				CCE9BBBE1CBD512B00C4EC1A /* MGSquare.m in Sources */,
+				CCE9BBC11CBD5D9E00C4EC1A /* MGSquareButton.m in Sources */,
 				CC2D2F801CADC32E00371D81 /* NSDate+MGExtension.m in Sources */,
 				CCEE3FAD1CB9800E0079FEF4 /* MGCommentCell.m in Sources */,
 				CC2D2F791CADC32E00371D81 /* MGRecommendUserCell.m in Sources */,
