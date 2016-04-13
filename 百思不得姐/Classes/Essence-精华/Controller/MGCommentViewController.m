@@ -106,7 +106,11 @@ static NSString *const commentId = @"comment";
     
     [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        MGLog(@"%@---%@", [responseObject class], responseObject);
+//        MGLog(@"%@---%@", [responseObject class], responseObject);
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            [self.tableView.mj_header endRefreshing];
+            return;
+        } // 说明没有数据
         
 //        [responseObject writeToFile:@"/Users/MG/Desktop/comments.plist" atomically:YES];
         self.hotComments = [MGComment mj_objectArrayWithKeyValuesArray:responseObject[@"hot"]];
@@ -276,7 +280,7 @@ static NSString *const commentId = @"comment";
     if (hotCount) return 2; // 最热评论 + 最新评论
     if (latestCount) return 1;
     
-    return 10 ;
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -316,7 +320,7 @@ static NSString *const commentId = @"comment";
     NSInteger hotCount = self.hotComments.count;
     if (section == 0) { // 最热评论有没有，没有第0组就是最新评论
         header.title = hotCount ? @"最热评论" : @"最新评论";
-    } else { // 非第0组
+    } else if (section == 1){ // 非第0组
         header.title = @"最新评论";
     }
     

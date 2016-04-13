@@ -1,5 +1,5 @@
 //
-//  MGSquareButton.h
+//  MGMeWebViewController.h
 //  百思不得姐
 //
 //  Created by 穆良 on 16/4/13.
@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-@class MGSquare;
-@interface MGSquareButton : UIButton
 
-/** 数据模型 */
-@property (nonatomic, strong) MGSquare *square;
+@interface MGMeWebViewController : UIViewController
+/** 跳转url */
+@property (nonatomic, copy) NSString *url;
 @end

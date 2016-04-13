@@ -8,11 +8,12 @@
 
 #import "MGMeFooterView.h"
 #import <AFNetworking.h>
-#import <UIButton+WebCache.h>
 #import <MJExtension.h>
 
 #import "MGSquare.h"
 #import "MGSquareButton.h"
+#import "MGMeWebViewController.h"
+
 
 @implementation MGMeFooterView
 
@@ -20,16 +21,11 @@
 {
     if (self = [super initWithFrame:frame]) {
     
+        self.backgroundColor = [UIColor clearColor];
         [self loadData];
     }
 
     return self;
-}
-
-// 设置背景图片
-- (void)drawRect:(CGRect)rect
-{
-    [[UIImage imageNamed:@"mainCellBackground"] drawInRect:rect];
 }
 
 #pragma mark - 加载数据
@@ -66,9 +62,10 @@
         
         MGSquare *square = squares[i];
         MGSquareButton *button = [[MGSquareButton alloc] init];
-        [button setTitle:square.name forState:UIControlStateNormal];
-        // 利用SDWebImage给按钮设置image
-        [button sd_setImageWithURL:[NSURL URLWithString:square.icon] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+        button.square = squares[i];
+        [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self addSubview:button];
         
         NSInteger col = i % maxCols;
         NSInteger row = i / maxCols;
@@ -78,9 +75,42 @@
         
         button.frame = CGRectMake(buttonX, buttonY, buttonW, buttonH);
         
-    
-        [self addSubview:button];
+        // 设置footer的高度
+//        self.height = CGRectGetMaxY(button.frame);
     }
+    
+//    NSUInteger rows = self.subviews.count / maxCols;
+//    if (self.subviews.count % maxCols) { // 不能整除, +1
+//        rows++;
+//    }
+    
+    
+    // 设置footer的高度
+    self.height = (self.subviews.count+ maxCols - 1)/maxCols * buttonH;
+    // 重绘
+    [self setNeedsDisplay];
+}
+
+#pragma mark - 设置背景图片
+//- (void)drawRect:(CGRect)rect
+//{
+//    [[UIImage imageNamed:@"mainCellBackground"] drawInRect:rect];
+//}
+
+
+#pragma mark - 按钮点击
+- (void)buttonClick:(MGSquareButton *)button
+{
+    if (![button.square.url hasPrefix:@"http"]) return;
+    
+    MGMeWebViewController *web = [[MGMeWebViewController alloc] init];
+    web.url = button.square.url;
+    web.title = button.square.name;
+    
+    UITabBarController *tabbarVc = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+    UINavigationController *nav = (UINavigationController *)[tabbarVc selectedViewController];
+    
+    [nav pushViewController:web animated:YES];
 }
 
 @end

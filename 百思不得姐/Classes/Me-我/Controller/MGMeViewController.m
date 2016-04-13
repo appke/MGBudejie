@@ -52,7 +52,7 @@ static NSString *const MGMeCellId = @"me";
     self.tableView.sectionFooterHeight = MGTopicCellMargin;
     
     // 表格往上挪
-    self.tableView.contentInset = UIEdgeInsetsMake(MGTopicCellMargin-35, 0, 0, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(MGTopicCellMargin-35, 0, 600, 0);
     
 //    UIButton *add = [UIButton buttonWithType:UIButtonTypeContactAdd];
 //    add.backgroundColor = [UIColor orangeColor];

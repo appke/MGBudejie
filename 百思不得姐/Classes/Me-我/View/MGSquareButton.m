@@ -7,10 +7,10 @@
 //
 
 #import "MGSquareButton.h"
+#import "MGSquare.h"
+#import <UIButton+WebCache.h>
 
-static CGFloat const rate = 0.60;
 @implementation MGSquareButton
-
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
@@ -27,10 +27,13 @@ static CGFloat const rate = 0.60;
 
 - (void)setup
 {
-    self.titleLabel.font = [UIFont systemFontOfSize:14];
-    
-    [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    // 屏蔽内部细节
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.titleLabel.font = [UIFont systemFontOfSize:14];
+    [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+//    self.imageView.backgroundColor = [UIColor redColor];
+    [self setBackgroundImage:[UIImage imageNamed:@"mainCellBackground"] forState:UIControlStateNormal];
 }
 
 
@@ -38,15 +41,24 @@ static CGFloat const rate = 0.60;
 {
     [super layoutSubviews];
     
-    self.imageView.height = self.height * 0.7;
-    self.imageView.width = self.imageView.height;
+//    self.imageView.centerX = self.width * 0.5;
+    self.imageView.y = self.width * 0.2;
+    self.imageView.width = self.width * 0.5;
+    self.imageView.height = self.imageView.width;
     self.imageView.x = (self.width - self.imageView.width) * 0.5;
-    self.imageView.y = 0;
     
     self.titleLabel.x = 0;
-    self.titleLabel.y = self.height * rate;
+    self.titleLabel.y = CGRectGetMaxY(self.imageView.frame);
     self.titleLabel.width = self.width;
-    self.titleLabel.height = self.height * (1-rate);
+    self.titleLabel.height = self.height - self.titleLabel.y;
+}
+
+- (void)setSquare:(MGSquare *)square
+{
+    _square = square;
     
+    [self setTitle:square.name forState:UIControlStateNormal];
+    // 利用SDWebImage给按钮设置image
+    [self sd_setImageWithURL:[NSURL URLWithString:square.icon] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
 }
 @end
