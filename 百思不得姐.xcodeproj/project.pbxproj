@@ -47,8 +47,6 @@
 		CC2D2F811CADC32E00371D81 /* UIBarButtonItem+MGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2D2F431CADC32E00371D81 /* UIBarButtonItem+MGExtension.m */; };
 		CC2D2F821CADC32E00371D81 /* UIView+MGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2D2F451CADC32E00371D81 /* UIView+MGExtension.m */; };
 		CC2D2F831CADC32E00371D81 /* MGNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2D2F481CADC32E00371D81 /* MGNavigationController.m */; };
-		CC2D2F841CADC32E00371D81 /* MGPublishView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2D2F4A1CADC32E00371D81 /* MGPublishView.m */; };
-		CC2D2F851CADC32E00371D81 /* MGPublishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2D2F4B1CADC32E00371D81 /* MGPublishView.xib */; };
 		CC2D2F861CADC32E00371D81 /* MGTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2D2F4D1CADC32E00371D81 /* MGTabBarController.m */; };
 		CC2D2F871CADC32E00371D81 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2D2F4E1CADC32E00371D81 /* Foundation+Log.m */; };
 		CC2D2F881CADC32E00371D81 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2D2F4F1CADC32E00371D81 /* main.m */; };
@@ -61,6 +59,9 @@
 		CC2D2F8F1CADC32E00371D81 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC2D2F5B1CADC32E00371D81 /* Storyboard.storyboard */; };
 		CC2D2F941CADC3A700371D81 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC2D2F921CADC3A700371D81 /* Info.plist */; };
 		CC3B1F1A1CB4321100BE8324 /* UIImage+MGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3B1F191CB4321100BE8324 /* UIImage+MGExtension.m */; };
+		CC7AE3A31CBEB50500241975 /* MGPublishView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7AE39F1CBEB50500241975 /* MGPublishView.m */; };
+		CC7AE3A41CBEB50500241975 /* MGPublishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC7AE3A01CBEB50500241975 /* MGPublishView.xib */; };
+		CC7AE3A71CBEB61C00241975 /* MGPostWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7AE3A61CBEB61C00241975 /* MGPostWordViewController.m */; };
 		CCBD3E2B1CB17645009D6171 /* MGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBD3E2A1CB17645009D6171 /* MGUser.m */; };
 		CCBD3E2E1CB17850009D6171 /* MGComment.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBD3E2D1CB17850009D6171 /* MGComment.m */; };
 		CCC9F9371CBE3D3400F356A7 /* MGMeWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC9F9351CBE3D3400F356A7 /* MGMeWebViewController.m */; };
@@ -158,9 +159,6 @@
 		CC2D2F451CADC32E00371D81 /* UIView+MGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MGExtension.m"; sourceTree = "<group>"; };
 		CC2D2F471CADC32E00371D81 /* MGNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGNavigationController.h; sourceTree = "<group>"; };
 		CC2D2F481CADC32E00371D81 /* MGNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGNavigationController.m; sourceTree = "<group>"; };
-		CC2D2F491CADC32E00371D81 /* MGPublishView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPublishView.h; sourceTree = "<group>"; };
-		CC2D2F4A1CADC32E00371D81 /* MGPublishView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGPublishView.m; sourceTree = "<group>"; };
-		CC2D2F4B1CADC32E00371D81 /* MGPublishView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MGPublishView.xib; sourceTree = "<group>"; };
 		CC2D2F4C1CADC32E00371D81 /* MGTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTabBarController.h; sourceTree = "<group>"; };
 		CC2D2F4D1CADC32E00371D81 /* MGTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGTabBarController.m; sourceTree = "<group>"; };
 		CC2D2F4E1CADC32E00371D81 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
@@ -182,6 +180,11 @@
 		CC3B1F191CB4321100BE8324 /* UIImage+MGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MGExtension.m"; sourceTree = "<group>"; };
 		CC64D1DA1C8E87EC00C7A44D /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC64D1F31C8E87EC00C7A44D /* 百思不得姐.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "百思不得姐.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC7AE39E1CBEB50500241975 /* MGPublishView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPublishView.h; sourceTree = "<group>"; };
+		CC7AE39F1CBEB50500241975 /* MGPublishView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGPublishView.m; sourceTree = "<group>"; };
+		CC7AE3A01CBEB50500241975 /* MGPublishView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MGPublishView.xib; sourceTree = "<group>"; };
+		CC7AE3A51CBEB61C00241975 /* MGPostWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPostWordViewController.h; sourceTree = "<group>"; };
+		CC7AE3A61CBEB61C00241975 /* MGPostWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGPostWordViewController.m; sourceTree = "<group>"; };
 		CCBD3E291CB17645009D6171 /* MGUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGUser.h; sourceTree = "<group>"; };
 		CCBD3E2A1CB17645009D6171 /* MGUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGUser.m; sourceTree = "<group>"; };
 		CCBD3E2C1CB17850009D6171 /* MGComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGComment.h; sourceTree = "<group>"; };
@@ -264,6 +267,7 @@
 				CC2D2F381CADC32E00371D81 /* New-新帖 */,
 				CC2D2F341CADC32E00371D81 /* Me-我 */,
 				CC2D2F191CADC32E00371D81 /* FriendTrends-关注 */,
+				CC7AE39C1CBEB50500241975 /* Publish-发布 */,
 				CC2D2F3C1CADC32E00371D81 /* Other-其他 */,
 			);
 			path = Classes;
@@ -474,9 +478,6 @@
 			children = (
 				CC2D2F471CADC32E00371D81 /* MGNavigationController.h */,
 				CC2D2F481CADC32E00371D81 /* MGNavigationController.m */,
-				CC2D2F491CADC32E00371D81 /* MGPublishView.h */,
-				CC2D2F4A1CADC32E00371D81 /* MGPublishView.m */,
-				CC2D2F4B1CADC32E00371D81 /* MGPublishView.xib */,
 				CC2D2F4C1CADC32E00371D81 /* MGTabBarController.h */,
 				CC2D2F4D1CADC32E00371D81 /* MGTabBarController.m */,
 			);
@@ -534,6 +535,42 @@
 				CC64D1F31C8E87EC00C7A44D /* 百思不得姐.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		CC7AE39C1CBEB50500241975 /* Publish-发布 */ = {
+			isa = PBXGroup;
+			children = (
+				CC7AE39D1CBEB50500241975 /* Controller */,
+				CC7AE3A11CBEB50500241975 /* Model */,
+				CC7AE3A21CBEB50500241975 /* View */,
+			);
+			path = "Publish-发布";
+			sourceTree = "<group>";
+		};
+		CC7AE39D1CBEB50500241975 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CC7AE39E1CBEB50500241975 /* MGPublishView.h */,
+				CC7AE39F1CBEB50500241975 /* MGPublishView.m */,
+				CC7AE3A01CBEB50500241975 /* MGPublishView.xib */,
+				CC7AE3A51CBEB61C00241975 /* MGPostWordViewController.h */,
+				CC7AE3A61CBEB61C00241975 /* MGPostWordViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CC7AE3A11CBEB50500241975 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CC7AE3A21CBEB50500241975 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		CCE9BBB41CBCEF7800C4EC1A /* View */ = {
@@ -644,6 +681,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCEE3FA61CB8FF8F0079FEF4 /* MGCommentViewController.xib in Resources */,
+				CC7AE3A41CBEB50500241975 /* MGPublishView.xib in Resources */,
 				CC2D2F5F1CADC32E00371D81 /* MGShowPictureViewController.xib in Resources */,
 				CC2D2F741CADC32E00371D81 /* MGRecommendViewController.xib in Resources */,
 				CC2D2F8B1CADC32E00371D81 /* MGPushGuideView.xib in Resources */,
@@ -657,7 +695,6 @@
 				CC2D2F6B1CADC32E00371D81 /* MGTopicVideoView.xib in Resources */,
 				CC2D2F941CADC3A700371D81 /* Info.plist in Resources */,
 				CCC9F9381CBE3D3400F356A7 /* MGMeWebViewController.xib in Resources */,
-				CC2D2F851CADC32E00371D81 /* MGPublishView.xib in Resources */,
 				CC2D2F8F1CADC32E00371D81 /* Storyboard.storyboard in Resources */,
 				CC2D2F691CADC32E00371D81 /* MGTopicPictureView.xib in Resources */,
 				CC2D2F8D1CADC32E00371D81 /* Images.xcassets in Resources */,
@@ -732,7 +769,6 @@
 				CCBD3E2B1CB17645009D6171 /* MGUser.m in Sources */,
 				CC2D2F7D1CADC32E00371D81 /* MGMeViewController.m in Sources */,
 				CC2D2F5E1CADC32E00371D81 /* MGShowPictureViewController.m in Sources */,
-				CC2D2F841CADC32E00371D81 /* MGPublishView.m in Sources */,
 				CC3B1F1A1CB4321100BE8324 /* UIImage+MGExtension.m in Sources */,
 				CC2D2F831CADC32E00371D81 /* MGNavigationController.m in Sources */,
 				CC2D2F811CADC32E00371D81 /* UIBarButtonItem+MGExtension.m in Sources */,
@@ -750,6 +786,7 @@
 				CC2D2F8A1CADC32E00371D81 /* MGPushGuideView.m in Sources */,
 				CCEE3FA91CB963330079FEF4 /* MGCommentHeaderView.m in Sources */,
 				CCC9F9371CBE3D3400F356A7 /* MGMeWebViewController.m in Sources */,
+				CC7AE3A31CBEB50500241975 /* MGPublishView.m in Sources */,
 				CC2D2F871CADC32E00371D81 /* Foundation+Log.m in Sources */,
 				CC2D2F6C1CADC32E00371D81 /* MGTopicVoiceView.m in Sources */,
 				CCE9BBBA1CBCFBE300C4EC1A /* MGMeFooterView.m in Sources */,
@@ -772,6 +809,7 @@
 				CC2D2F751CADC32E00371D81 /* MGRecommendCategory.m in Sources */,
 				CC2D2F7E1CADC32E00371D81 /* MGNewViewController.m in Sources */,
 				CC2D2F761CADC32E00371D81 /* MGRecommendUser.m in Sources */,
+				CC7AE3A71CBEB61C00241975 /* MGPostWordViewController.m in Sources */,
 				CC2D2F661CADC32E00371D81 /* MGTopicCell.m in Sources */,
 				CCFC8A601CBA97270015C613 /* MGTopWindow.m in Sources */,
 				CC2D2F601CADC32E00371D81 /* MGTopicViewController.m in Sources */,

@@ -9,6 +9,10 @@
 #import "MGTabBar.h"
 #import "MGPublishView.h"
 
+//--------
+#import "MGNavigationController.h"
+#import "MGPostWordViewController.h"
+
 @interface MGTabBar()
 /** 发布按钮 */
 @property (nonatomic, weak) UIButton *publishButton;
@@ -51,7 +55,13 @@
 //    
 //    window1.windowLevel
     
-    [MGPublishView show];
+    MGPostWordViewController *postWord = [[MGPostWordViewController alloc] init];
+    MGNavigationController *nav = [[MGNavigationController alloc] initWithRootViewController:postWord];
+    
+    UIViewController *root = [UIApplication sharedApplication].keyWindow.rootViewController;
+    [root presentViewController:nav animated:YES completion:nil];
+    
+//    [MGPublishView show];
 }
 
 

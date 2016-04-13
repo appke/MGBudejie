@@ -9,6 +9,8 @@
 #import "MGPublishView.h"
 #import "MGVerticalButton.h"
 #import <pop/POP.h>
+#import "MGPostWordViewController.h"
+#import "MGNavigationController.h"
 
 #define MGRootView [UIApplication sharedApplication].keyWindow.rootViewController.view
 
@@ -33,7 +35,7 @@ static UIWindow *window_;
 {
     window_ = [[UIWindow alloc] init];
     window_.frame = [UIScreen mainScreen].bounds;
-    window_.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.9];
+    window_.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.95];
     window_.hidden = NO;
     
     MGPublishView *publish = [MGPublishView publishView];
@@ -120,10 +122,18 @@ static UIWindow *window_;
 {
     [self cancelWithCompletionBlock:^{
         
-        if (button.tag == 0) {
-            MGLog(@"发视频");
-        } else if (button.tag == 1) {
-            MGLog(@"发图片");
+//        if (button.tag == 0) {
+//            MGLog(@"发视频");
+//        } else if (button.tag == 1) {
+//            MGLog(@"发图片");
+//        }
+        if (button.tag == 2) {
+            
+            MGPostWordViewController *postWord = [[MGPostWordViewController alloc] init];
+            MGNavigationController *nav = [[MGNavigationController alloc] initWithRootViewController:postWord];
+            
+            UIViewController *root = [UIApplication sharedApplication].keyWindow.rootViewController;
+            [root presentViewController:nav animated:YES completion:nil];
         }
     }];
     
