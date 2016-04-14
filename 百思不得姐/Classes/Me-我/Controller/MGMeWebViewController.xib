@@ -10,6 +10,7 @@
                 <outlet property="goBackItem" destination="gCL-p7-kWU" id="EQF-Aq-eIK"/>
                 <outlet property="goForwardItem" destination="LNY-on-c3Y" id="vNb-2a-uRM"/>
                 <outlet property="progressView" destination="ft6-82-bUm" id="e54-UT-NUd"/>
+                <outlet property="toolbar" destination="EUB-il-rvl" id="08x-tl-T8m"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="webView" destination="AGM-5K-Tc3" id="UMp-Hq-qr8"/>
             </connections>
@@ -34,7 +35,7 @@
                                 <action selector="goBack:" destination="-1" id="eA2-dl-5wh"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem enabled="NO" title="→" id="LNY-on-c3Y">
+                        <barButtonItem enabled="NO" title="→" style="plain" id="LNY-on-c3Y">
                             <connections>
                                 <action selector="goForward:" destination="-1" id="9g0-Ua-sHm"/>
                             </connections>
@@ -67,6 +68,7 @@
                 <constraint firstItem="ft6-82-bUm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qGb-XZ-CjM"/>
                 <constraint firstItem="EUB-il-rvl" firstAttribute="top" secondItem="AGM-5K-Tc3" secondAttribute="bottom" id="ssJ-DW-sJl"/>
             </constraints>
+            <point key="canvasLocation" x="237" y="388"/>
         </view>
     </objects>
 </document>

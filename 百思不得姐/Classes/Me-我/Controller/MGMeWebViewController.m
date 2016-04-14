@@ -17,6 +17,8 @@
 
 /** 进度条控件 */
 @property (weak, nonatomic) IBOutlet UIProgressView *progressView;
+/** 底部工具条 */
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 
 /** 进度条控件 */
 //@property (nonatomic, strong) NJKWebViewProgressView *progressView;
@@ -49,6 +51,10 @@
     self.progress.progressDelegate = self;
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.url]]];
 
+//    self.goBackItem.enabled = NO;
+//    self.goForwardItem.enabled = NO;
+    
+    [self.toolbar layoutIfNeeded];
     
 }
 
@@ -70,6 +76,7 @@
 {
     self.goBackItem.enabled = self.webView.canGoBack;
     self.goForwardItem.enabled = self.webView.canGoForward;
+    [self.toolbar layoutIfNeeded];
 }
 
 #pragma mark - NJKWebViewProgressDelegate
