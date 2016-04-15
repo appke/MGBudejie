@@ -64,6 +64,7 @@
 		CC7AE3A71CBEB61C00241975 /* MGPostWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7AE3A61CBEB61C00241975 /* MGPostWordViewController.m */; };
 		CCBD3E2B1CB17645009D6171 /* MGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBD3E2A1CB17645009D6171 /* MGUser.m */; };
 		CCBD3E2E1CB17850009D6171 /* MGComment.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBD3E2D1CB17850009D6171 /* MGComment.m */; };
+		CCC91AA71CC13BD40056117F /* MGPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC91AA61CC13BD40056117F /* MGPlaceholderTextView.m */; };
 		CCC9F9371CBE3D3400F356A7 /* MGMeWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC9F9351CBE3D3400F356A7 /* MGMeWebViewController.m */; };
 		CCC9F9381CBE3D3400F356A7 /* MGMeWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCC9F9361CBE3D3400F356A7 /* MGMeWebViewController.xib */; };
 		CCE9BBB31CBBF2DE00C4EC1A /* UIImageView+MGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE9BBB21CBBF2DE00C4EC1A /* UIImageView+MGExtension.m */; };
@@ -189,6 +190,8 @@
 		CCBD3E2A1CB17645009D6171 /* MGUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGUser.m; sourceTree = "<group>"; };
 		CCBD3E2C1CB17850009D6171 /* MGComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGComment.h; sourceTree = "<group>"; };
 		CCBD3E2D1CB17850009D6171 /* MGComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGComment.m; sourceTree = "<group>"; };
+		CCC91AA51CC13BD40056117F /* MGPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPlaceholderTextView.h; sourceTree = "<group>"; };
+		CCC91AA61CC13BD40056117F /* MGPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGPlaceholderTextView.m; sourceTree = "<group>"; };
 		CCC9F9341CBE3D3400F356A7 /* MGMeWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGMeWebViewController.h; sourceTree = "<group>"; };
 		CCC9F9351CBE3D3400F356A7 /* MGMeWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGMeWebViewController.m; sourceTree = "<group>"; };
 		CCC9F9361CBE3D3400F356A7 /* MGMeWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MGMeWebViewController.xib; sourceTree = "<group>"; };
@@ -569,6 +572,8 @@
 		CC7AE3A21CBEB50500241975 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CCC91AA51CC13BD40056117F /* MGPlaceholderTextView.h */,
+				CCC91AA61CC13BD40056117F /* MGPlaceholderTextView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -804,6 +809,7 @@
 				CC2D2F5D1CADC32E00371D81 /* MGRecommendTagsViewController.m in Sources */,
 				CC2D2F731CADC32E00371D81 /* MGRecommendViewController.m in Sources */,
 				CC2D2F7C1CADC32E00371D81 /* MGVerticalButton.m in Sources */,
+				CCC91AA71CC13BD40056117F /* MGPlaceholderTextView.m in Sources */,
 				CC2D2F7F1CADC32E00371D81 /* AppDelegate.m in Sources */,
 				CC2D2F891CADC32E00371D81 /* MGConst.m in Sources */,
 				CC2D2F751CADC32E00371D81 /* MGRecommendCategory.m in Sources */,

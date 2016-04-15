@@ -7,6 +7,8 @@
 //
 
 #import "MGPostWordViewController.h"
+#import "MGPlaceholderTextView.h"
+
 
 @interface MGPostWordViewController ()
 
@@ -19,6 +21,24 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor redColor];
     
+    [self setupNav];
+    
+    [self setupTextView];
+}
+
+/**
+ *  初始化- 占位文字的textView
+ */
+- (void)setupTextView
+{
+    
+}
+
+/**
+ *  初始化导航栏
+ */
+- (void)setupNav
+{
     self.title = @"发段子";
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(cancel)];
@@ -29,9 +49,12 @@
     // 强制刷新
     [self.navigationController.navigationBar layoutIfNeeded];
     
-//    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:20]}];
-//    [self.navigationItem.leftBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor]} forState:UIControlStateNormal];
+    //    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:20]}];
+    //    [self.navigationItem.leftBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor]} forState:UIControlStateNormal];
 }
+
+
+
 
 - (void)cancel
 {
