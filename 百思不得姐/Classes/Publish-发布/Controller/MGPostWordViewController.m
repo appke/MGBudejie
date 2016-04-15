@@ -10,8 +10,9 @@
 #import "MGPlaceholderTextView.h"
 
 
-@interface MGPostWordViewController ()
-
+@interface MGPostWordViewController () <UITextViewDelegate>
+/** 文本输入框 */
+@property (nonatomic, weak) MGPlaceholderTextView *textView;
 @end
 
 @implementation MGPostWordViewController
@@ -31,7 +32,17 @@
  */
 - (void)setupTextView
 {
+    self.automaticallyAdjustsScrollViewInsets = YES;
+    MGPlaceholderTextView *textView = [[MGPlaceholderTextView alloc] init];
+    textView.frame = self.view.bounds;
+    textView.placeholder = @"把好玩的图片，好笑的段子或糗事发到这里，接受千万网友膜拜吧！发布违反国家法律内容的，我们将依法提交给有关部门处理。";
+    textView.placeholderColor = [UIColor redColor];
     
+//    textView.delegate = self;
+    textView.bounces = YES;
+    
+    _textView = textView;
+    [self.view addSubview:textView];
 }
 
 /**
@@ -53,17 +64,24 @@
     //    [self.navigationItem.leftBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor]} forState:UIControlStateNormal];
 }
 
-
-
-
 - (void)cancel
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+//    self.textView.placeholderColor = [UIColor blueColor];
+//    self.textView.placeholder = @"hahaha";
+//    self.textView.font = [UIFont systemFontOfSize:20];
+    self.textView.text = @"代码修改文字不发通知哦";
+    
+//    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)post
 {
     MGLogFunc;
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.view endEditing:YES];
 }
 
 @end
