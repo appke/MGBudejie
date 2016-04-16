@@ -20,7 +20,7 @@
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:nil];
         
-        [self addSubview:[UIButton buttonWithType:UIButtonTypeContactAdd]];
+//        [self addSubview:[UIButton buttonWithType:UIButtonTypeContactAdd]];
     }
     return self;
 }

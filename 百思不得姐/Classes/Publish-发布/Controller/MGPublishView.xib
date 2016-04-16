@@ -30,7 +30,7 @@
                 <constraint firstAttribute="bottom" secondItem="3xD-oT-ORo" secondAttribute="bottom" constant="30" id="WCs-be-ZTz"/>
                 <constraint firstItem="3xD-oT-ORo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="rxU-Sx-e0T"/>
             </constraints>
-            <point key="canvasLocation" x="174" y="348"/>
+            <point key="canvasLocation" x="327" y="303"/>
         </view>
     </objects>
     <resources>

@@ -8,11 +8,16 @@
 
 #import "MGPostWordViewController.h"
 #import "MGPlaceholderTextView.h"
+#import "MGAddTagToolbarView.h"
 
 
 @interface MGPostWordViewController () <UITextViewDelegate>
 /** 文本输入框 */
 @property (nonatomic, weak) MGPlaceholderTextView *textView;
+
+/** 工具条 */
+@property (nonatomic, weak) MGAddTagToolbarView *toolbar;
+
 @end
 
 @implementation MGPostWordViewController
@@ -25,6 +30,36 @@
     [self setupNav];
     
     [self setupTextView];
+    
+    [self setupToolbar];
+}
+
+- (void)setupToolbar
+{
+    // 添加工具条
+    MGAddTagToolbarView *toolbar = [MGAddTagToolbarView viewFromXib];
+    toolbar.width = self.view.width;
+    toolbar.y = self.view.height - toolbar.height;
+    
+    [self.view addSubview:toolbar];
+    self.toolbar = toolbar;
+//    MGLog(@"--%@", NSStringFromCGRect(toolbar.frame));
+    
+    // 监听键盘
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
+/** 监听键盘的显示和隐藏 */
+- (void)keyboardWillChangeFrame:(NSNotification *)note
+{
+    // 键盘最终的frame
+    CGRect keyboardF = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    // 动画时间
+    NSTimeInterval duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    [UIView animateWithDuration:duration animations:^{
+        self.toolbar.transform = CGAffineTransformMakeTranslation(0, keyboardF.origin.y - MGScreenH);
+    }];
 }
 
 /**
@@ -36,10 +71,11 @@
     MGPlaceholderTextView *textView = [[MGPlaceholderTextView alloc] init];
     textView.frame = self.view.bounds;
     textView.placeholder = @"把好玩的图片，好笑的段子或糗事发到这里，接受千万网友膜拜吧！发布违反国家法律内容的，我们将依法提交给有关部门处理。";
-    textView.placeholderColor = [UIColor redColor];
+//    textView.placeholderColor = [UIColor redColor];
     
-//    textView.delegate = self;
-    textView.bounces = YES;
+    textView.delegate = self;
+    
+//    textView.inputAccessoryView = [MGAddTagToolbarView viewFromXib];
     
     _textView = textView;
     [self.view addSubview:textView];
@@ -58,7 +94,7 @@
     self.navigationItem.rightBarButtonItem.enabled = NO;
     
     // 强制刷新
-    [self.navigationController.navigationBar layoutIfNeeded];
+//    [self.navigationController.navigationBar layoutIfNeeded];
     
     //    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:20]}];
     //    [self.navigationItem.leftBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor]} forState:UIControlStateNormal];
@@ -69,14 +105,20 @@
 //    self.textView.placeholderColor = [UIColor blueColor];
 //    self.textView.placeholder = @"hahaha";
 //    self.textView.font = [UIFont systemFontOfSize:20];
-    self.textView.text = @"代码修改文字不发通知哦";
+//    self.textView.text = @"代码修改文字不发通知哦";
     
-//    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)post
 {
     MGLogFunc;
+}
+
+#pragma mark - UITextViewDelegate
+- (void)textViewDidChange:(UITextView *)textView
+{
+    self.navigationItem.rightBarButtonItem.enabled = textView.hasText;
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView

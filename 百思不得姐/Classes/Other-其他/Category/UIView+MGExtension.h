@@ -26,6 +26,8 @@
 
 /** 是否显示在主窗口 */
 - (BOOL)isShowingInKeyWindow;
-- (BOOL)isShowingInKeyWindow;
+
+/** 从xib中创建一个view */
++ (instancetype)viewFromXib;
 
 @end

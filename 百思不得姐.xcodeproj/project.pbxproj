@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4D941A57BD41495B1E6212B4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1AF7505D443F75EA407C004 /* libPods.a */; };
+		CC1F2D7D1CC27CD600B61E09 /* MGAddTagToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1F2D7C1CC27CD600B61E09 /* MGAddTagToolbarView.m */; };
+		CC1F2D7F1CC27CE600B61E09 /* MGAddTagToolbarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC1F2D7E1CC27CE600B61E09 /* MGAddTagToolbarView.xib */; };
 		CC2D2F5C1CADC32E00371D81 /* MGEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2D2EF81CADC32E00371D81 /* MGEssenceViewController.m */; };
 		CC2D2F5D1CADC32E00371D81 /* MGRecommendTagsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2D2EFA1CADC32E00371D81 /* MGRecommendTagsViewController.m */; };
 		CC2D2F5E1CADC32E00371D81 /* MGShowPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2D2EFC1CADC32E00371D81 /* MGShowPictureViewController.m */; };
@@ -93,6 +95,9 @@
 /* Begin PBXFileReference section */
 		216FF1072D41BBEEE3FD2D14 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C1AF7505D443F75EA407C004 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC1F2D7B1CC27CD600B61E09 /* MGAddTagToolbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGAddTagToolbarView.h; sourceTree = "<group>"; };
+		CC1F2D7C1CC27CD600B61E09 /* MGAddTagToolbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGAddTagToolbarView.m; sourceTree = "<group>"; };
+		CC1F2D7E1CC27CE600B61E09 /* MGAddTagToolbarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MGAddTagToolbarView.xib; sourceTree = "<group>"; };
 		CC2D2EF71CADC32E00371D81 /* MGEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGEssenceViewController.h; sourceTree = "<group>"; };
 		CC2D2EF81CADC32E00371D81 /* MGEssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGEssenceViewController.m; sourceTree = "<group>"; };
 		CC2D2EF91CADC32E00371D81 /* MGRecommendTagsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGRecommendTagsViewController.h; sourceTree = "<group>"; };
@@ -574,6 +579,9 @@
 			children = (
 				CCC91AA51CC13BD40056117F /* MGPlaceholderTextView.h */,
 				CCC91AA61CC13BD40056117F /* MGPlaceholderTextView.m */,
+				CC1F2D7B1CC27CD600B61E09 /* MGAddTagToolbarView.h */,
+				CC1F2D7C1CC27CD600B61E09 /* MGAddTagToolbarView.m */,
+				CC1F2D7E1CC27CE600B61E09 /* MGAddTagToolbarView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -689,6 +697,7 @@
 				CC7AE3A41CBEB50500241975 /* MGPublishView.xib in Resources */,
 				CC2D2F5F1CADC32E00371D81 /* MGShowPictureViewController.xib in Resources */,
 				CC2D2F741CADC32E00371D81 /* MGRecommendViewController.xib in Resources */,
+				CC1F2D7F1CC27CE600B61E09 /* MGAddTagToolbarView.xib in Resources */,
 				CC2D2F8B1CADC32E00371D81 /* MGPushGuideView.xib in Resources */,
 				CC2D2F701CADC32E00371D81 /* MGFriendTrendsViewController.xib in Resources */,
 				CC2D2F8E1CADC32E00371D81 /* Info.plist in Resources */,
@@ -802,6 +811,7 @@
 				CC2D2F791CADC32E00371D81 /* MGRecommendUserCell.m in Sources */,
 				CC2D2F6F1CADC32E00371D81 /* MGFriendTrendsViewController.m in Sources */,
 				CC2D2F641CADC32E00371D81 /* MGRecommendTagCell.m in Sources */,
+				CC1F2D7D1CC27CD600B61E09 /* MGAddTagToolbarView.m in Sources */,
 				CC2D2F681CADC32E00371D81 /* MGTopicPictureView.m in Sources */,
 				CC2D2F821CADC32E00371D81 /* UIView+MGExtension.m in Sources */,
 				CC2D2F711CADC32E00371D81 /* MGLoginRegisterViewController.m in Sources */,

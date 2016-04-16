@@ -40,7 +40,7 @@
     [item setTitleTextAttributes:itemAttrs forState:UIControlStateNormal];
     
     NSMutableDictionary *itemDisabledAttrs = [NSMutableDictionary dictionary];
-    itemDisabledAttrs[NSForegroundColorAttributeName] = [UIColor cyanColor];
+    itemDisabledAttrs[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
     [item setTitleTextAttributes:itemDisabledAttrs forState:UIControlStateDisabled];
     
 //    MGLogFunc;

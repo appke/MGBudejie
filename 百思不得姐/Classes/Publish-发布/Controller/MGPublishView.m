@@ -136,7 +136,6 @@ static UIWindow *window_;
             [root presentViewController:nav animated:YES completion:nil];
         }
     }];
-    
 }
 
 #pragma mark - 取消
