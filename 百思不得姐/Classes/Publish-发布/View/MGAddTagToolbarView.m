@@ -40,7 +40,6 @@
     UITabBarController *root = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
 //    UINavigationController *nav = (UINavigationController *)[root selectedViewController];
 //    UIViewController *topVc = nav.topViewController;
-    
     UINavigationController *postNav = (UINavigationController *)root.presentedViewController;
     
     [postNav pushViewController:addTagVc animated:YES];

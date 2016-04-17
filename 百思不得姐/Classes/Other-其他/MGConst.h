@@ -40,3 +40,6 @@ UIKIT_EXTERN NSString *const MGTabBarDidSelectNotification;
 UIKIT_EXTERN NSString *const MGSelectedControllerIndexKey;
 /** tabBar被选中的通知名称 - 被选中控制器 */
 UIKIT_EXTERN NSString *const MGSelectedControllerKey;
+
+/** 标签-间距 */
+UIKIT_EXTERN CGFloat const MGTagMargin;

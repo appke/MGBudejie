@@ -128,4 +128,10 @@
     [self.view endEditing:YES];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.textView becomeFirstResponder];
+}
+
 @end

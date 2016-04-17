@@ -31,3 +31,6 @@ NSString *const MGTabBarDidSelectNotification = @"MGTabBarDidSelectNotification"
 NSString *const MGSelectedControllerIndexKey = @"MGSelectedControllerIndexKey";
 /** tabBar被选中的通知名称 - 被选中控制器 */
 NSString *const MGSelectedControllerKey = @"MGSelectedControllerKey";
+
+/** 标签-间距 */
+CGFloat const MGTagMargin = 5;
