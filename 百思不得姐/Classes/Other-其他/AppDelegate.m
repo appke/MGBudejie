@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // 创建窗口
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.backgroundColor = [UIColor redColor];
+//    self.window.backgroundColor = [UIColor redColor];
     
     // 设置窗口的根控制器
     MGTabBarController *tabBarController = [[MGTabBarController alloc] init];;

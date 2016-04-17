@@ -11,6 +11,7 @@
 #import "MGAddTagToolbarView.h"
 
 
+
 @interface MGPostWordViewController () <UITextViewDelegate>
 /** 文本输入框 */
 @property (nonatomic, weak) MGPlaceholderTextView *textView;
@@ -99,6 +100,7 @@
     //    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:20]}];
     //    [self.navigationItem.leftBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor]} forState:UIControlStateNormal];
 }
+
 
 - (void)cancel
 {

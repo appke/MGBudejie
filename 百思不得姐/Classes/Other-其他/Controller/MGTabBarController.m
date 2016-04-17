@@ -60,6 +60,7 @@
 //    self.tabBar = [[MGTabBar alloc] init];
     [self setValue:[[MGTabBar alloc] init] forKey:@"tabBar"];
     
+    
 }
 
 

@@ -60,7 +60,7 @@
     
     for (int i = 0; i < squares.count; i++) {
         
-        MGSquare *square = squares[i];
+//        MGSquare *square = squares[i];
         MGSquareButton *button = [[MGSquareButton alloc] init];
         button.square = squares[i];
         [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -109,6 +109,8 @@
     
     UITabBarController *tabbarVc = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
     UINavigationController *nav = (UINavigationController *)[tabbarVc selectedViewController];
+    
+//    MGLog(@"%@\n%@", tabbarVc, nav);
     
     [nav pushViewController:web animated:YES];
 }
