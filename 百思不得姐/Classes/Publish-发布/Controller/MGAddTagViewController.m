@@ -7,6 +7,7 @@
 //
 
 #import "MGAddTagViewController.h"
+#import "MGTagButton.h"
 
 @interface MGAddTagViewController ()
 /** 文本输入框 */
@@ -23,7 +24,7 @@
 
 @implementation MGAddTagViewController
 
-
+#pragma mark - 懒加载
 - (NSMutableArray *)tagButtons
 {
     if (!_tagButtons) {
@@ -71,6 +72,7 @@
     [self setupTextFile];
 }
 
+#pragma mark - 初始化
 - (void)setupContentView
 {
     UIView *contentView = [[UIView alloc] init];
@@ -89,6 +91,7 @@
 {
     UITextField * textField = [[UITextField alloc] init];
     textField.placeholder = @"多个标签用逗号或换行隔开";
+    [textField setValue:[UIColor grayColor] forKeyPath:@"_placeholderLabel.textColor"];
     textField.width = MGScreenW;
     textField.height = 25;
 //    textField.delegate = self;
@@ -113,6 +116,7 @@
     MGLogFunc;
 }
 
+#pragma mark - 监听文字改变
 /**
  *  监听文字改变
  */
@@ -133,20 +137,15 @@
     [self updateTagButtonFrame];
 }
 
-/**
- *  监听"添加标签"按钮点击
- */
+#pragma mark - 监听按钮点击
 - (void)addButtonClick
 {
-    UIButton *tagButton = [[UIButton alloc] init];
-    tagButton.backgroundColor = MGTagBg;
-    tagButton.titleLabel.font = [UIFont systemFontOfSize:14];
-    [tagButton setImage:[UIImage imageNamed:@"chose_tag_close_icon"] forState:UIControlStateNormal];
-    [tagButton setTitle:self.textField.text forState:UIControlStateNormal];
+    MGTagButton *tagButton = [[MGTagButton alloc] init];
     [tagButton addTarget:self action:@selector(tagButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [tagButton setTitle:self.textField.text forState:UIControlStateNormal];
     
-    // 真强大
-    [tagButton sizeToFit];
+    tagButton.height = self.textField.height;
+    
     [self.tagButtons addObject:tagButton];
     [self.contentView addSubview:tagButton];
     
@@ -158,9 +157,20 @@
     [self updateTagButtonFrame];
 }
 
-/**
- *  专门用来更新标签按钮的frame
- */
+- (void)tagButtonClick:(UIButton *)tagButton
+{
+    
+    [tagButton removeFromSuperview];
+    [self.tagButtons removeObject:tagButton];
+    
+    // 搞个动画
+    [UIView animateWithDuration:0.25 animations:^{
+        [self updateTagButtonFrame];
+    }];
+}
+
+
+#pragma mark - 专门用来更新标签按钮的frame
 - (void)updateTagButtonFrame
 {
     for (int i = 0; i < self.tagButtons.count; i++) {
@@ -209,18 +219,10 @@
     }
 }
 
-- (void)tagButtonClick:(UIButton *)tagButton
-{
-    
-    [tagButton removeFromSuperview];
-    [self.tagButtons removeObject:tagButton];
-    
-    // 搞个动画
-    [UIView animateWithDuration:0.25 animations:^{
-        [self updateTagButtonFrame];
-    }];
-}
 
+/**
+ *  返回textView的文字
+ */
 - (CGFloat)textFieldTextWidth
 {
     CGFloat textW = [self.textField.text sizeWithAttributes:@{NSFontAttributeName : self.textField.font}].width;

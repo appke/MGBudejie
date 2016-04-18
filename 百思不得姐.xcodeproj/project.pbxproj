@@ -61,6 +61,7 @@
 		CC2D2F8F1CADC32E00371D81 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC2D2F5B1CADC32E00371D81 /* Storyboard.storyboard */; };
 		CC2D2F941CADC3A700371D81 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC2D2F921CADC3A700371D81 /* Info.plist */; };
 		CC3843F71CC372DD003F8AF4 /* MGAddTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3843F61CC372DD003F8AF4 /* MGAddTagViewController.m */; };
+		CC3843FA1CC436B8003F8AF4 /* MGTagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3843F91CC436B8003F8AF4 /* MGTagButton.m */; };
 		CC3B1F1A1CB4321100BE8324 /* UIImage+MGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3B1F191CB4321100BE8324 /* UIImage+MGExtension.m */; };
 		CC7AE3A31CBEB50500241975 /* MGPublishView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7AE39F1CBEB50500241975 /* MGPublishView.m */; };
 		CC7AE3A41CBEB50500241975 /* MGPublishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC7AE3A01CBEB50500241975 /* MGPublishView.xib */; };
@@ -185,6 +186,8 @@
 		CC2D2F931CADC3A700371D81 /* xm04______Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "xm04______Tests.m"; sourceTree = "<group>"; };
 		CC3843F51CC372DD003F8AF4 /* MGAddTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGAddTagViewController.h; sourceTree = "<group>"; };
 		CC3843F61CC372DD003F8AF4 /* MGAddTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGAddTagViewController.m; sourceTree = "<group>"; };
+		CC3843F81CC436B8003F8AF4 /* MGTagButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTagButton.h; sourceTree = "<group>"; };
+		CC3843F91CC436B8003F8AF4 /* MGTagButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGTagButton.m; sourceTree = "<group>"; };
 		CC3B1F181CB4321100BE8324 /* UIImage+MGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MGExtension.h"; sourceTree = "<group>"; };
 		CC3B1F191CB4321100BE8324 /* UIImage+MGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MGExtension.m"; sourceTree = "<group>"; };
 		CC64D1DA1C8E87EC00C7A44D /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -587,6 +590,8 @@
 				CC1F2D7B1CC27CD600B61E09 /* MGAddTagToolbarView.h */,
 				CC1F2D7C1CC27CD600B61E09 /* MGAddTagToolbarView.m */,
 				CC1F2D7E1CC27CE600B61E09 /* MGAddTagToolbarView.xib */,
+				CC3843F81CC436B8003F8AF4 /* MGTagButton.h */,
+				CC3843F91CC436B8003F8AF4 /* MGTagButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -821,6 +826,7 @@
 				CC2D2F821CADC32E00371D81 /* UIView+MGExtension.m in Sources */,
 				CC2D2F711CADC32E00371D81 /* MGLoginRegisterViewController.m in Sources */,
 				CC2D2F8C1CADC32E00371D81 /* MGTabBar.m in Sources */,
+				CC3843FA1CC436B8003F8AF4 /* MGTagButton.m in Sources */,
 				CC2D2F5D1CADC32E00371D81 /* MGRecommendTagsViewController.m in Sources */,
 				CC2D2F731CADC32E00371D81 /* MGRecommendViewController.m in Sources */,
 				CC2D2F7C1CADC32E00371D81 /* MGVerticalButton.m in Sources */,
