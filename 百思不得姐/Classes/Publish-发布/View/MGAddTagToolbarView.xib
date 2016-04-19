@@ -8,27 +8,28 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="8bg-rO-ter" customClass="MGAddTagToolbarView">
-            <rect key="frame" x="0.0" y="0.0" width="305" height="97"/>
+            <rect key="frame" x="0.0" y="0.0" width="398" height="97"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7N3-ZT-lLd" userLabel="顶部">
-                    <rect key="frame" x="5" y="0.0" width="295" height="59"/>
+                    <rect key="frame" x="5" y="0.0" width="388" height="57"/>
+                    <color key="backgroundColor" red="0.10588235410000001" green="0.68627452850000004" blue="0.93333333730000001" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4zM-VF-r20" userLabel="底部">
-                    <rect key="frame" x="0.0" y="59" width="305" height="38"/>
+                    <rect key="frame" x="0.0" y="62" width="398" height="35"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabbar-light" translatesAutoresizingMaskIntoConstraints="NO" id="xYa-AJ-bgg">
-                            <rect key="frame" x="0.0" y="0.0" width="305" height="38"/>
+                            <rect key="frame" x="0.0" y="0.0" width="398" height="35"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekr-Gh-50T">
-                            <rect key="frame" x="0.0" y="0.0" width="35" height="38"/>
+                            <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="35" id="0kY-FE-Ifs"/>
                             </constraints>
                             <state key="normal" image="post-@"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQd-2v-7QB">
-                            <rect key="frame" x="35" y="0.0" width="35" height="38"/>
+                            <rect key="frame" x="35" y="0.0" width="35" height="35"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="35" id="sZS-6G-WZn"/>
                             </constraints>
@@ -44,29 +45,29 @@
                         <constraint firstAttribute="bottom" secondItem="xYa-AJ-bgg" secondAttribute="bottom" id="JCj-yQ-K8L"/>
                         <constraint firstAttribute="bottom" secondItem="ekr-Gh-50T" secondAttribute="bottom" id="JE6-lt-KFe"/>
                         <constraint firstItem="cQd-2v-7QB" firstAttribute="top" secondItem="4zM-VF-r20" secondAttribute="top" id="OGR-Zg-4Yz"/>
-                        <constraint firstAttribute="height" constant="38" id="Y2d-11-ID9"/>
+                        <constraint firstAttribute="height" constant="35" id="Y2d-11-ID9"/>
                         <constraint firstAttribute="bottom" secondItem="cQd-2v-7QB" secondAttribute="bottom" id="Zak-yt-y4j"/>
                         <constraint firstItem="ekr-Gh-50T" firstAttribute="leading" secondItem="4zM-VF-r20" secondAttribute="leading" id="fOJ-0u-5IQ"/>
                         <constraint firstItem="ekr-Gh-50T" firstAttribute="top" secondItem="4zM-VF-r20" secondAttribute="top" id="sSS-WD-7xs"/>
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.96470588445663452" green="0.60784316062927246" blue="0.090196080505847931" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="4zM-VF-r20" secondAttribute="bottom" id="9X2-GY-sEe"/>
                 <constraint firstAttribute="trailing" secondItem="7N3-ZT-lLd" secondAttribute="trailing" constant="5" id="Ao2-9B-o8j"/>
                 <constraint firstAttribute="trailing" secondItem="4zM-VF-r20" secondAttribute="trailing" id="Jhj-DN-vU1"/>
                 <constraint firstItem="7N3-ZT-lLd" firstAttribute="leading" secondItem="8bg-rO-ter" secondAttribute="leading" constant="5" id="Q27-N5-NS5"/>
                 <constraint firstItem="4zM-VF-r20" firstAttribute="leading" secondItem="8bg-rO-ter" secondAttribute="leading" id="gq2-aL-K4k"/>
-                <constraint firstItem="7N3-ZT-lLd" firstAttribute="top" secondItem="8bg-rO-ter" secondAttribute="top" id="j6q-Kn-VFi"/>
-                <constraint firstItem="4zM-VF-r20" firstAttribute="top" secondItem="7N3-ZT-lLd" secondAttribute="bottom" id="yqE-UV-msR"/>
+                <constraint firstAttribute="top" secondItem="7N3-ZT-lLd" secondAttribute="top" id="j6q-Kn-VFi"/>
+                <constraint firstItem="4zM-VF-r20" firstAttribute="top" secondItem="7N3-ZT-lLd" secondAttribute="bottom" constant="5" id="yqE-UV-msR"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="topView" destination="7N3-ZT-lLd" id="m3N-A9-OxX"/>
             </connections>
-            <point key="canvasLocation" x="275.5" y="211.5"/>
+            <point key="canvasLocation" x="428" y="202.5"/>
         </view>
     </objects>
     <resources>

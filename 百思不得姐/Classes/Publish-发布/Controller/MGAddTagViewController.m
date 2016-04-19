@@ -132,6 +132,16 @@
     self.navigationItem.rightBarButtonItem = doneItem;
 }
 
+#pragma mark - 子控件排布
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    
+    
+}
+
+
 #pragma mark - 返回上一个控制器
 - (void)done
 {

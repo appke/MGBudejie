@@ -8,7 +8,6 @@
 
 #import "MGCommentHeaderView.h"
 @interface MGCommentHeaderView ()
-
 /** 内部label */
 @property (nonatomic, weak) UILabel *label;
 @end
