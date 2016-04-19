@@ -10,6 +10,8 @@
 #import "MGTagButton.h"
 #import "MGTagTextField.h"
 
+#import <SVProgressHUD.h>
+
 @interface MGAddTagViewController () <UITextFieldDelegate>
 /** 文本输入框 */
 @property (nonatomic, weak) UITextField *textField;
@@ -70,7 +72,7 @@
     
     [self setupContentView];
     
-    [self setupTextFile];
+    [self setupTextField];
 }
 
 #pragma mark - 初始化
@@ -88,24 +90,20 @@
     _contentView = contentView;
 }
 
-- (void)setupTextFile
+- (void)setupTextField
 {
     MGTagTextField * textField = [[MGTagTextField alloc] init];
-    textField.placeholder = @"多个标签用逗号或换行隔开";
-    [textField setValue:[UIColor grayColor] forKeyPath:@"_placeholderLabel.textColor"];
     textField.width = self.contentView.width;
-    textField.height = 25;
     textField.delegate = self;
     
     __weak typeof(self) weakSelf  = self;
     textField.deleteBlock = ^(){
         
+        MGLog(@"%d", weakSelf.textField.hasText);
         if (self.textField.hasText) return;
-        
         [weakSelf tagButtonClick:[weakSelf.tagButtons lastObject]];
     };
     
-    textField.font = [UIFont systemFontOfSize:14];
     [textField addTarget:self action:@selector(textDidChange) forControlEvents:UIControlEventEditingChanged];
     
     [textField becomeFirstResponder];
@@ -129,9 +127,6 @@
 #pragma mark - 监听文字改变
 - (void)textDidChange
 {
-    // 更新文本框的frame,输入文字，文本框可换行
-    [self updateTextFieldFrame];
-    
     if (self.textField.hasText) { // 有文字
         // 显示"添加标签"的按钮
         self.addButton.hidden = NO;
@@ -141,7 +136,6 @@
         // 获得最后一个字符
         NSString *text = self.textField.text;
         NSUInteger len = text.length;
-        
         NSString *lastLetter = [text substringFromIndex:len - 1];
         
         if (([lastLetter isEqualToString:@","]
@@ -154,16 +148,22 @@
         // 隐藏"添加标签"的按钮
         self.addButton.hidden = YES;
     }
+    
+    // 更新文本框的frame,输入文字，文本框可换行
+    [self updateTextFieldFrame];
 }
 
 #pragma mark - 监听按钮点击
 - (void)addButtonClick
 {
+    if (self.tagButtons.count == 5) {
+        [SVProgressHUD showErrorWithStatus:@"最多只能输入5个" maskType:SVProgressHUDMaskTypeNone];
+        return;
+    }
+    
     MGTagButton *tagButton = [[MGTagButton alloc] init];
     [tagButton addTarget:self action:@selector(tagButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [tagButton setTitle:self.textField.text forState:UIControlStateNormal];
-    
-    tagButton.height = self.textField.height;
     
     [self.tagButtons addObject:tagButton];
     [self.contentView addSubview:tagButton];
@@ -182,7 +182,6 @@
  */
 - (void)tagButtonClick:(UIButton *)tagButton
 {
-    
     [tagButton removeFromSuperview];
     [self.tagButtons removeObject:tagButton];
     
@@ -192,7 +191,6 @@
         [self updateTextFieldFrame];
     }];
 }
-
 
 #pragma mark - 专门用来更新标签按钮的frame
 - (void)updateTagButtonFrame
@@ -271,9 +269,9 @@
     return YES;
 }
 
-- (BOOL)textFieldShouldClear:(UITextField *)textField
-{
-    return YES;
-}
+//- (BOOL)textFieldShouldClear:(UITextField *)textField
+//{
+//    return YES;
+//}
 
 @end

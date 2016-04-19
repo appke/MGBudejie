@@ -43,3 +43,5 @@ UIKIT_EXTERN NSString *const MGSelectedControllerKey;
 
 /** 标签-间距 */
 UIKIT_EXTERN CGFloat const MGTagMargin;
+/** 标签-高度 */
+UIKIT_EXTERN CGFloat const MGTagH;

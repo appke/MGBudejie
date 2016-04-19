@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MGTagTextField : UITextField <UIKeyInput>
+@interface MGTagTextField : UITextField
 /** 按了删除键后的回调,没有返回值,也没有参数 */
 @property (nonatomic, copy) void (^deleteBlock)(void);
 @end

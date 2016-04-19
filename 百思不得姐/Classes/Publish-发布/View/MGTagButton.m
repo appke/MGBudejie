@@ -15,9 +15,8 @@
     if (self = [super initWithFrame:frame]) {
         
         self.backgroundColor = MGTagBg;
-        self.titleLabel.font = [UIFont systemFontOfSize:14];
+        self.titleLabel.font = MGTagFont;
         [self setImage:[UIImage imageNamed:@"chose_tag_close_icon"] forState:UIControlStateNormal];
-        
     }
     return self;
 }
@@ -25,9 +24,10 @@
 - (void)setTitle:(NSString *)title forState:(UIControlState)state
 {
     [super setTitle:title forState:state];
-    [self sizeToFit];
     
+    [self sizeToFit];
     self.width += 3 * MGTagMargin;
+    self.height = MGTagH;
 }
 
 - (void)layoutSubviews

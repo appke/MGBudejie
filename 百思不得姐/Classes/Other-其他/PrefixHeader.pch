@@ -31,6 +31,8 @@
 
 #define MGTagBg MGRGBColor(74, 139, 209)
 
+#define MGTagFont [UIFont systemFontOfSize:14]
+
 #define MGScreenW [UIScreen mainScreen].bounds.size.width
 #define MGScreenH [UIScreen mainScreen].bounds.size.height
 

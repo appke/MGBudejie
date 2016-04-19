@@ -34,3 +34,5 @@ NSString *const MGSelectedControllerKey = @"MGSelectedControllerKey";
 
 /** 标签-间距 */
 CGFloat const MGTagMargin = 5;
+/** 标签-高度 */
+CGFloat const MGTagH = 25;
