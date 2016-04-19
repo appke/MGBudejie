@@ -73,6 +73,19 @@
     [self setupContentView];
     
     [self setupTextField];
+    
+    [self setupTags];
+}
+
+
+
+#pragma mark - 初始化tags
+- (void)setupTags
+{
+    for (NSString *tag in self.tags) {
+        self.textField.text = tag;
+        [self addButtonClick];
+    }
 }
 
 #pragma mark - 初始化
@@ -99,7 +112,7 @@
     __weak typeof(self) weakSelf  = self;
     textField.deleteBlock = ^(){
         
-        MGLog(@"%d", weakSelf.textField.hasText);
+//        MGLog(@"%d", weakSelf.textField.hasText);
         if (self.textField.hasText) return;
         [weakSelf tagButtonClick:[weakSelf.tagButtons lastObject]];
     };
@@ -119,9 +132,21 @@
     self.navigationItem.rightBarButtonItem = doneItem;
 }
 
+#pragma mark - 返回上一个控制器
 - (void)done
 {
-    MGLogFunc;
+    // pop之前传递数据给上一个控制器
+//    NSMutableArray *tags = [NSMutableArray array];
+//    for (MGTagButton *button in self.tagButtons) {
+//        
+//        [tags addObject:[button currentTitle]];
+//    }
+    
+    NSMutableArray *tags = [self.tagButtons valueForKey:@"currentTitle"];
+    !self.tagsBlock ? : self.tagsBlock(tags);
+    
+    [self.navigationController popViewControllerAnimated:YES];
+//    MGLogFunc;
 }
 
 #pragma mark - 监听文字改变
@@ -157,7 +182,7 @@
 - (void)addButtonClick
 {
     if (self.tagButtons.count == 5) {
-        [SVProgressHUD showErrorWithStatus:@"最多只能输入5个" maskType:SVProgressHUDMaskTypeNone];
+        [SVProgressHUD showErrorWithStatus:@"最多只能输入5个" maskType:SVProgressHUDMaskTypeBlack];
         return;
     }
     

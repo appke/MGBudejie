@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface MGAddTagViewController : UIViewController
-
+/** 获取tags的block */
+@property (nonatomic, copy) void (^tagsBlock)(NSArray *tags);
+/** 所有标签 */
+@property (nonatomic, strong) NSArray *tags;
 @end
