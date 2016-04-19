@@ -8,8 +8,9 @@
 
 #import "MGAddTagViewController.h"
 #import "MGTagButton.h"
+#import "MGTagTextField.h"
 
-@interface MGAddTagViewController ()
+@interface MGAddTagViewController () <UITextFieldDelegate>
 /** 文本输入框 */
 @property (nonatomic, weak) UITextField *textField;
 /** 存放标签的容器 */
@@ -89,12 +90,21 @@
 
 - (void)setupTextFile
 {
-    UITextField * textField = [[UITextField alloc] init];
+    MGTagTextField * textField = [[MGTagTextField alloc] init];
     textField.placeholder = @"多个标签用逗号或换行隔开";
     [textField setValue:[UIColor grayColor] forKeyPath:@"_placeholderLabel.textColor"];
-    textField.width = MGScreenW;
+    textField.width = self.contentView.width;
     textField.height = 25;
-//    textField.delegate = self;
+    textField.delegate = self;
+    
+    __weak typeof(self) weakSelf  = self;
+    textField.deleteBlock = ^(){
+        
+        if (self.textField.hasText) return;
+        
+        [weakSelf tagButtonClick:[weakSelf.tagButtons lastObject]];
+    };
+    
     textField.font = [UIFont systemFontOfSize:14];
     [textField addTarget:self action:@selector(textDidChange) forControlEvents:UIControlEventEditingChanged];
     
@@ -117,24 +127,33 @@
 }
 
 #pragma mark - 监听文字改变
-/**
- *  监听文字改变
- */
 - (void)textDidChange
 {
+    // 更新文本框的frame,输入文字，文本框可换行
+    [self updateTextFieldFrame];
+    
     if (self.textField.hasText) { // 有文字
         // 显示"添加标签"的按钮
         self.addButton.hidden = NO;
         self.addButton.y = CGRectGetMaxY(self.textField.frame) + MGTagMargin;
         [self.addButton setTitle:[NSString stringWithFormat:@"添加标签:%@", self.textField.text] forState:UIControlStateNormal];
         
+        // 获得最后一个字符
+        NSString *text = self.textField.text;
+        NSUInteger len = text.length;
+        
+        NSString *lastLetter = [text substringFromIndex:len - 1];
+        
+        if (([lastLetter isEqualToString:@","]
+             || [lastLetter isEqualToString:@"，"]) && len > 1) {
+            // 去除逗号
+            self.textField.text = [text substringToIndex:len - 1];
+            [self addButtonClick];
+        }
     } else {
         // 隐藏"添加标签"的按钮
         self.addButton.hidden = YES;
     }
-    
-    // 输入文字，文本框可换行
-    [self updateTagButtonFrame];
 }
 
 #pragma mark - 监听按钮点击
@@ -155,8 +174,12 @@
     
     // 更新标签按钮的frame
     [self updateTagButtonFrame];
+    [self updateTextFieldFrame];
 }
 
+/**
+ *  删除标签
+ */
 - (void)tagButtonClick:(UIButton *)tagButton
 {
     
@@ -166,6 +189,7 @@
     // 搞个动画
     [UIView animateWithDuration:0.25 animations:^{
         [self updateTagButtonFrame];
+        [self updateTextFieldFrame];
     }];
 }
 
@@ -203,13 +227,16 @@
     // 更新textFiled的frame
 //    self.textField.x = 0;
 //    self.textField.y = CGRectGetMaxY([[self.tagButtons lastObject] frame]) + MGTagMargin;
-    
+}
+
+- (void)updateTextFieldFrame
+{
     // 拿到最后一个按钮
     UIButton *lastButton = [self.tagButtons lastObject];
     
     CGFloat leftWidth = CGRectGetMaxX(lastButton.frame) + MGTagMargin;
     // 更新textFiled的frame
-//    if (self.contentView.width - leftWidth >= 100) {
+    //    if (self.contentView.width - leftWidth >= 100) {
     if (self.contentView.width - leftWidth >= [self textFieldTextWidth]) {
         self.textField.x = leftWidth;
         self.textField.y = lastButton.y;
@@ -231,11 +258,22 @@
     return MAX(textW, 40);
 }
 
-//- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-//{
-//    MGLogFunc;
-//    return YES;
-//}
 
+#pragma mark - UITextFieldDelegate
+/**
+ *  监听按钮右下角点击
+ */
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField.hasText) {
+        [self addButtonClick];
+    }
+    return YES;
+}
+
+- (BOOL)textFieldShouldClear:(UITextField *)textField
+{
+    return YES;
+}
 
 @end

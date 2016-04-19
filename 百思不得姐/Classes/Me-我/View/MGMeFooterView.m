@@ -39,6 +39,8 @@
     // 发送请求
     [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
+//        [responseObject[@"square_list"] writeToFile:@"/Users/MG/Desktop/square.plist" atomically:YES];
+        
         NSArray *squares = [MGSquare mj_objectArrayWithKeyValuesArray:responseObject[@"square_list"]];
         // 到这一步squares里面肯定有值
         [self createSquares:squares];

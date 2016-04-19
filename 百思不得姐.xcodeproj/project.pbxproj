@@ -60,6 +60,7 @@
 		CC2D2F8E1CADC32E00371D81 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC2D2F5A1CADC32E00371D81 /* Info.plist */; };
 		CC2D2F8F1CADC32E00371D81 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC2D2F5B1CADC32E00371D81 /* Storyboard.storyboard */; };
 		CC2D2F941CADC3A700371D81 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC2D2F921CADC3A700371D81 /* Info.plist */; };
+		CC2EB78A1CC54C4400D829BD /* MGTagTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2EB7891CC54C4400D829BD /* MGTagTextField.m */; };
 		CC3843F71CC372DD003F8AF4 /* MGAddTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3843F61CC372DD003F8AF4 /* MGAddTagViewController.m */; };
 		CC3843FA1CC436B8003F8AF4 /* MGTagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3843F91CC436B8003F8AF4 /* MGTagButton.m */; };
 		CC3B1F1A1CB4321100BE8324 /* UIImage+MGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3B1F191CB4321100BE8324 /* UIImage+MGExtension.m */; };
@@ -184,6 +185,8 @@
 		CC2D2F5B1CADC32E00371D81 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		CC2D2F921CADC3A700371D81 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC2D2F931CADC3A700371D81 /* xm04______Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "xm04______Tests.m"; sourceTree = "<group>"; };
+		CC2EB7881CC54C4400D829BD /* MGTagTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTagTextField.h; sourceTree = "<group>"; };
+		CC2EB7891CC54C4400D829BD /* MGTagTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGTagTextField.m; sourceTree = "<group>"; };
 		CC3843F51CC372DD003F8AF4 /* MGAddTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGAddTagViewController.h; sourceTree = "<group>"; };
 		CC3843F61CC372DD003F8AF4 /* MGAddTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGAddTagViewController.m; sourceTree = "<group>"; };
 		CC3843F81CC436B8003F8AF4 /* MGTagButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTagButton.h; sourceTree = "<group>"; };
@@ -592,6 +595,8 @@
 				CC1F2D7E1CC27CE600B61E09 /* MGAddTagToolbarView.xib */,
 				CC3843F81CC436B8003F8AF4 /* MGTagButton.h */,
 				CC3843F91CC436B8003F8AF4 /* MGTagButton.m */,
+				CC2EB7881CC54C4400D829BD /* MGTagTextField.h */,
+				CC2EB7891CC54C4400D829BD /* MGTagTextField.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -791,6 +796,7 @@
 			files = (
 				CC2D2F6A1CADC32E00371D81 /* MGTopicVideoView.m in Sources */,
 				CCBD3E2B1CB17645009D6171 /* MGUser.m in Sources */,
+				CC2EB78A1CC54C4400D829BD /* MGTagTextField.m in Sources */,
 				CC2D2F7D1CADC32E00371D81 /* MGMeViewController.m in Sources */,
 				CC2D2F5E1CADC32E00371D81 /* MGShowPictureViewController.m in Sources */,
 				CC3B1F1A1CB4321100BE8324 /* UIImage+MGExtension.m in Sources */,

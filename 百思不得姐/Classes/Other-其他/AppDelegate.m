@@ -22,9 +22,10 @@
 //    self.window.backgroundColor = [UIColor redColor];
     
     // 设置窗口的根控制器
-    MGTabBarController *tabBarController = [[MGTabBarController alloc] init];;
+    MGTabBarController *tabBarController = [[MGTabBarController alloc] init];
     self.window.rootViewController = tabBarController;
-//    tabBarController.delegate = self;
+    
+    tabBarController.delegate = self;
     
     // 显示窗口
     [self.window makeKeyAndVisible];

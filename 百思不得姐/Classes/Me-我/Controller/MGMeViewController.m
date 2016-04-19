@@ -19,7 +19,7 @@
 static NSString *const MGMeCellId = @"me";
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     [self setupNav];
     
     [self setupTableView];
@@ -52,7 +52,11 @@ static NSString *const MGMeCellId = @"me";
     self.tableView.sectionFooterHeight = MGTopicCellMargin;
     
     // 表格往上挪
-    self.tableView.contentInset = UIEdgeInsetsMake(MGTopicCellMargin-35, 0, 600, 0);
+//    self.tableView.contentInset = UIEdgeInsetsMake(MGTopicCellMargin-35, 0, 600, 0);
+//    CGRect frame = CGRectMake(0, 0, 0, CGFLOAT_MIN);
+    CGRect frame = CGRectMake(0, 0, 0, MGTopicCellMargin);
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:frame];
+    
     
 //    UIButton *add = [UIButton buttonWithType:UIButtonTypeContactAdd];
 //    add.backgroundColor = [UIColor orangeColor];
