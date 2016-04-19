@@ -42,24 +42,17 @@
     if (!_addButton) {
         UIButton *addButton = [[UIButton alloc] init];
         
-        addButton.width = self.contentView.width;
-        addButton.height = 30;
-        
         [addButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         addButton.backgroundColor = MGTagBg;
         [addButton addTarget:self action:@selector(addButtonClick) forControlEvents:UIControlEventTouchUpInside];
         
-//        addButton.titleLabel.backgroundColor = [UIColor magentaColor];
-//        addButton.titleLabel.textAlignment = NSTextAlignmentLeft;
         // 让按钮内部的图片和文字左对齐
         addButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         addButton.titleLabel.font = [UIFont systemFontOfSize:14];
         
-        
         addButton.contentEdgeInsets = UIEdgeInsetsMake(0, MGTagMargin, 0, MGTagMargin);
         [self.contentView addSubview:addButton];
         _addButton = addButton;
-        
     }
     return _addButton;
 }
@@ -69,62 +62,43 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self setupNav];
-    
-    [self setupContentView];
-    
-    [self setupTextField];
-    
-    [self setupTags];
 }
 
-
-
-#pragma mark - 初始化tags
-- (void)setupTags
+#pragma mark - 懒加载contentView
+- (UIView *)contentView
 {
-    for (NSString *tag in self.tags) {
-        self.textField.text = tag;
-        [self addButtonClick];
+    if (!_contentView) {
+        UIView *contentView = [[UIView alloc] init];
+        [self.view addSubview:contentView];
+        _contentView = contentView;
     }
+    return _contentView;
 }
+
+#pragma mark - 懒加载textField
+- (UITextField *)textField
+{
+    if (!_textField) {
+        MGTagTextField * textField = [[MGTagTextField alloc] init];
+        textField.delegate = self;
+        
+        __weak typeof(self) weakSelf  = self;
+        textField.deleteBlock = ^(){
+            if (self.textField.hasText) return;
+            [weakSelf tagButtonClick:[weakSelf.tagButtons lastObject]];
+        };
+        
+        [textField addTarget:self action:@selector(textDidChange) forControlEvents:UIControlEventEditingChanged];
+        [textField becomeFirstResponder];
+        
+        [self.contentView addSubview:textField];
+        _textField = textField;
+    }
+    return _textField;
+}
+
 
 #pragma mark - 初始化
-- (void)setupContentView
-{
-    UIView *contentView = [[UIView alloc] init];
-    contentView.y = 64 + MGTagMargin;
-    contentView.x = MGTagMargin;
-    contentView.width = MGScreenW - 2 * contentView.x;
-    // 高度多少关系
-    contentView.height = MGScreenH;
-//    contentView.backgroundColor = [UIColor magentaColor];
-    
-    [self.view addSubview:contentView];
-    _contentView = contentView;
-}
-
-- (void)setupTextField
-{
-    MGTagTextField * textField = [[MGTagTextField alloc] init];
-    textField.width = self.contentView.width;
-    textField.delegate = self;
-    
-    __weak typeof(self) weakSelf  = self;
-    textField.deleteBlock = ^(){
-        
-//        MGLog(@"%d", weakSelf.textField.hasText);
-        if (self.textField.hasText) return;
-        [weakSelf tagButtonClick:[weakSelf.tagButtons lastObject]];
-    };
-    
-    [textField addTarget:self action:@selector(textDidChange) forControlEvents:UIControlEventEditingChanged];
-    
-    [textField becomeFirstResponder];
-    
-    [self.contentView addSubview:textField];
-    _textField = textField;
-}
-
 - (void)setupNav
 {
     self.title = @"添加标签";
@@ -132,31 +106,47 @@
     self.navigationItem.rightBarButtonItem = doneItem;
 }
 
+- (void)setupTags
+{
+    if (self.tags.count) {
+        for (NSString *tag in self.tags) {
+            self.textField.text = tag;
+            [self addButtonClick];
+        }
+        
+        self.tags = nil;
+    }
+}
+
 #pragma mark - 子控件排布
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
     
+    // contentView的尺寸
+    self.contentView.y = 64 + MGTagMargin;
+    self.contentView.x = MGTagMargin;
+    self.contentView.width = MGScreenW - 2 * self.contentView.x;
+    self.contentView.height = MGScreenH;
     
+    // textField的尺寸
+    self.textField.width = self.contentView.width;
     
+    // addButton的尺寸
+    self.addButton.width = self.contentView.width;
+    self.addButton.height = 30;
+    
+    [self setupTags];
 }
-
 
 #pragma mark - 返回上一个控制器
 - (void)done
 {
     // pop之前传递数据给上一个控制器
-//    NSMutableArray *tags = [NSMutableArray array];
-//    for (MGTagButton *button in self.tagButtons) {
-//        
-//        [tags addObject:[button currentTitle]];
-//    }
-    
     NSMutableArray *tags = [self.tagButtons valueForKey:@"currentTitle"];
     !self.tagsBlock ? : self.tagsBlock(tags);
     
     [self.navigationController popViewControllerAnimated:YES];
-//    MGLogFunc;
 }
 
 #pragma mark - 监听文字改变
@@ -256,10 +246,6 @@
             }
         }
     }
-    
-    // 更新textFiled的frame
-//    self.textField.x = 0;
-//    self.textField.y = CGRectGetMaxY([[self.tagButtons lastObject] frame]) + MGTagMargin;
 }
 
 - (void)updateTextFieldFrame
@@ -269,7 +255,6 @@
     
     CGFloat leftWidth = CGRectGetMaxX(lastButton.frame) + MGTagMargin;
     // 更新textFiled的frame
-    //    if (self.contentView.width - leftWidth >= 100) {
     if (self.contentView.width - leftWidth >= [self textFieldTextWidth]) {
         self.textField.x = leftWidth;
         self.textField.y = lastButton.y;
@@ -277,6 +262,9 @@
         self.textField.x = 0;
         self.textField.y = CGRectGetMaxY([lastButton frame]) + MGTagMargin;
     }
+    
+    // 更新“添加标签”位置
+    self.addButton.y = CGRectGetMaxY(self.textField.frame) + MGTagMargin;
 }
 
 

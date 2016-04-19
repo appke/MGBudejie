@@ -75,7 +75,7 @@
     textView.frame = self.view.bounds;
     textView.placeholder = @"把好玩的图片，好笑的段子或糗事发到这里，接受千万网友膜拜吧！发布违反国家法律内容的，我们将依法提交给有关部门处理。";
 //    textView.placeholderColor = [UIColor redColor];
-    textView.backgroundColor = [UIColor yellowColor];
+//    textView.backgroundColor = [UIColor yellowColor];
     
     textView.delegate = self;
     
@@ -134,6 +134,9 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    // 先退出之前键盘
+    [self.view endEditing:YES];
+    // 在叫出键盘
     [self.textView becomeFirstResponder];
 }
 
