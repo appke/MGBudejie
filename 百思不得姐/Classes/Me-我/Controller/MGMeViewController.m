@@ -9,6 +9,7 @@
 #import "MGMeViewController.h"
 #import "MGMeCell.h"
 #import "MGMeFooterView.h"
+#import "MGSettingViewController.h"
 
 @interface MGMeViewController ()
 
@@ -96,7 +97,8 @@ static NSString *const MGMeCellId = @"me";
 
 - (void)settingClick
 {
-    MGLogFunc;
+    MGSettingViewController *setting = [[MGSettingViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    [self.navigationController pushViewController:setting animated:YES];
 }
 
 - (void)moonClick
