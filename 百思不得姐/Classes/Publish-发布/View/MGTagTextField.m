@@ -33,10 +33,10 @@
 
 - (void)deleteBackward
 {
-    [super deleteBackward];
-    
     // 一旦block有值就调用
     !self.deleteBlock ? : self.deleteBlock();
+    
+    [super deleteBackward];
     
 //    MGLogFunc;
 }

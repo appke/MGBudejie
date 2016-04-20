@@ -102,6 +102,7 @@ static UIWindow *window_;
     CGFloat centerEndY = MGScreenH * 0.2;
     CGFloat centerBeginY = centerEndY - MGScreenH;
     sloganView.centerY = centerBeginY;
+    sloganView.centerX = centerX;
     
     anim.fromValue = [NSValue valueWithCGPoint:CGPointMake(centerX, centerBeginY)];
     anim.toValue = [NSValue valueWithCGPoint:CGPointMake(centerX, centerEndY)];

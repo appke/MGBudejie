@@ -10,14 +10,11 @@
 
 @implementation MGNavigationController
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
-    
-//    self.navigationBar.tintColor = [UIColor blackColor];
+    // 如果滑动移除控制的功能失效，清空代理(让导航控制器重新设置这个功能)
+    self.interactivePopGestureRecognizer.delegate = nil;
 }
 
 /**

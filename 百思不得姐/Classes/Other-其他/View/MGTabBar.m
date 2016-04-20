@@ -55,13 +55,13 @@
 //    
 //    window1.windowLevel
     
-    MGPostWordViewController *postWord = [[MGPostWordViewController alloc] init];
-    MGNavigationController *nav = [[MGNavigationController alloc] initWithRootViewController:postWord];
+//    MGPostWordViewController *postWord = [[MGPostWordViewController alloc] init];
+//    MGNavigationController *nav = [[MGNavigationController alloc] initWithRootViewController:postWord];
+//    
+//    UIViewController *root = [UIApplication sharedApplication].keyWindow.rootViewController;
+//    [root presentViewController:nav animated:YES completion:nil];
     
-    UIViewController *root = [UIApplication sharedApplication].keyWindow.rootViewController;
-    [root presentViewController:nav animated:YES completion:nil];
-    
-//    [MGPublishView show];
+    [MGPublishView show];
 }
 
 
