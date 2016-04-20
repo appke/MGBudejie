@@ -14,9 +14,10 @@
 #import "MGTopicVideoView.h"
 #import "MGComment.h"
 #import "MGUser.h"
+#import "MGLoginTool.h"
 
 
-@interface MGTopicCell ()
+@interface MGTopicCell () <UIActionSheetDelegate>
 /** 图像 */
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 /** 名称 */
@@ -38,13 +39,10 @@
 
 /** 帖子中间的图片 */
 @property (nonatomic, weak) MGTopicPictureView *pictureView;
-
 /** 帖子中间的声音 */
 @property (nonatomic, weak) MGTopicVoiceView *voiceView;
-
 /** 帖子中间的视频 */
 @property (nonatomic, weak) MGTopicVideoView *videoView;
-
 /** 评论内容 */
 @property (weak, nonatomic) IBOutlet UILabel *topCmtContentLabel;
 /** 最热评论整体 */
@@ -207,7 +205,19 @@
 - (IBAction)more:(id)sender {
     
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"收藏", @"举报", nil];
+    sheet.delegate = self;
     [sheet showInView:self.window];
 }
 
+#pragma mark - <UIActionSheetDelegate>
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    // 取消
+    if (buttonIndex == 2) return;
+    
+//    MGLog(@"%zd", buttonIndex);
+    if ([MGLoginTool getUid:YES] == nil) return;
+    
+    // 开始执行举报\收藏操作
+}
 @end

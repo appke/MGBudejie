@@ -87,23 +87,26 @@
         // 根据帖子类型，计算cell的高度
         if (self.type == MGTopicTypePicture) { // 图片帖子
             
-            // 图片的宽度
-            CGFloat pictureW = maxSize.width;
-            // 图片的高度
-            CGFloat pictureH = pictureW * self.height / self.width;
-            
-            // 图片高度过长
-            if (pictureH > MGTopicCellPictureMaxH) {
-                pictureH = MGTopicCellPictureBreakH;
-                self.bigPicture = YES; // 为大图
+            if (self.height != 0 && self.width != 0) {
+                // 图片的宽度
+                CGFloat pictureW = maxSize.width;
+                // 图片的高度
+                CGFloat pictureH = pictureW * self.height / self.width;
+                
+                // 图片高度过长
+                if (pictureH > MGTopicCellPictureMaxH) {
+                    pictureH = MGTopicCellPictureBreakH;
+                    self.bigPicture = YES; // 为大图
+                }
+                
+                // 计算图片控件的frame
+                CGFloat pictureX = MGTopicCellMargin;
+                CGFloat pictureY = MGTopicCellTextY + textH + MGTopicCellMargin;
+                _pictureF = CGRectMake(pictureX, pictureY, pictureW, pictureH);
+                
+                _cellHeight += pictureH + MGTopicCellMargin;
             }
             
-            // 计算图片控件的frame
-            CGFloat pictureX = MGTopicCellMargin;
-            CGFloat pictureY = MGTopicCellTextY + textH + MGTopicCellMargin;
-            _pictureF = CGRectMake(pictureX, pictureY, pictureW, pictureH);
-            
-            _cellHeight += pictureH + MGTopicCellMargin;
         } else if (self.type == MGTopicTypeVoice){ // 声音
             
             CGFloat voiceX = MGTopicCellMargin;

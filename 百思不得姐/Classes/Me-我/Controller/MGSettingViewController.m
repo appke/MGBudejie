@@ -8,6 +8,7 @@
 
 #import "MGSettingViewController.h"
 #import <SDImageCache.h>
+#import <SVProgressHUD.h>
 
 @interface MGSettingViewController ()
 
@@ -23,13 +24,11 @@
     
     // 图片缓存
     NSUInteger cacheSize = [SDImageCache sharedImageCache].getSize;
-    MGLog(@"%zd, %@", cacheSize, NSTemporaryDirectory());
+//    MGLog(@"%zd, %@", cacheSize, NSTemporaryDirectory());
     
 //    NSFileManager *fileManager = [NSFileManager defaultManager];
 //    [fileManager contentsOfDirectoryAtPath:diskCachePath error:nil];
 //    [fileManager subpathsAtPath:diskCachePath];
-    
-    
 }
 
 - (NSUInteger)getCacheSize
@@ -80,8 +79,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    [[NSFileManager defaultManager] removeItemAtPath:diskCachePath error:nil];
+//    [[NSFileManager defaultManager] removeItemAtPath:diskCachePath error:nil];}|
     [[SDImageCache sharedImageCache] clearDisk];
+    
+    [SVProgressHUD showWithStatus:@"正在清除缓存" maskType:SVProgressHUDMaskTypeBlack];
 }
 
 @end

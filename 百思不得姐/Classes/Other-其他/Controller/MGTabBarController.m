@@ -48,20 +48,17 @@
 //    selImage = [selImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 //    vc01.tabBarItem.selectedImage = selImage;
     
-    [self setupChildVc:[[MGMeViewController alloc] initWithStyle:UITableViewStyleGrouped] title:@"我的" image:@"tabBar_me_icon" selectedImage:@"tabBar_me_click_icon"];
-    
-    
     [self setupChildVc:[[MGEssenceViewController alloc] init] title:@"精华" image:@"tabBar_essence_icon" selectedImage:@"tabBar_essence_click_icon"];
     
     [self setupChildVc:[[MGNewViewController alloc] init] title:@"新帖" image:@"tabBar_new_icon" selectedImage:@"tabBar_new_click_icon"];
     
     [self setupChildVc:[[MGFriendTrendsViewController alloc] init] title:@"关注" image:@"tabBar_friendTrends_icon" selectedImage:@"tabBar_friendTrends_click_icon"];
     
+    [self setupChildVc:[[MGMeViewController alloc] initWithStyle:UITableViewStyleGrouped] title:@"我的" image:@"tabBar_me_icon" selectedImage:@"tabBar_me_click_icon"];
+    
     // 更换tabBar
 //    self.tabBar = [[MGTabBar alloc] init];
     [self setValue:[[MGTabBar alloc] init] forKey:@"tabBar"];
-    
-    
 }
 
 

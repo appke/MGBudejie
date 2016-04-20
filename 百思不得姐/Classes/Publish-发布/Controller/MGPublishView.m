@@ -11,6 +11,7 @@
 #import <pop/POP.h>
 #import "MGPostWordViewController.h"
 #import "MGNavigationController.h"
+#import "MGLoginTool.h"
 
 #define MGRootView [UIApplication sharedApplication].keyWindow.rootViewController.view
 
@@ -129,6 +130,9 @@ static UIWindow *window_;
 //            MGLog(@"发图片");
 //        }
         if (button.tag == 2) {
+            
+            // 判断是否登录
+//            if([MGLoginTool getUid:YES] == nil) return;
             
             MGPostWordViewController *postWord = [[MGPostWordViewController alloc] init];
             MGNavigationController *nav = [[MGNavigationController alloc] initWithRootViewController:postWord];

@@ -68,6 +68,7 @@
 		CC7AE3A41CBEB50500241975 /* MGPublishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC7AE3A01CBEB50500241975 /* MGPublishView.xib */; };
 		CC7AE3A71CBEB61C00241975 /* MGPostWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7AE3A61CBEB61C00241975 /* MGPostWordViewController.m */; };
 		CC9A99D81CC7D8110031C250 /* MGSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC9A99D71CC7D8110031C250 /* MGSettingViewController.m */; };
+		CC9A99DC1CC7FA930031C250 /* MGLoginTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CC9A99DB1CC7FA930031C250 /* MGLoginTool.m */; };
 		CCBD3E2B1CB17645009D6171 /* MGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBD3E2A1CB17645009D6171 /* MGUser.m */; };
 		CCBD3E2E1CB17850009D6171 /* MGComment.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBD3E2D1CB17850009D6171 /* MGComment.m */; };
 		CCC91AA71CC13BD40056117F /* MGPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC91AA61CC13BD40056117F /* MGPlaceholderTextView.m */; };
@@ -203,6 +204,8 @@
 		CC7AE3A61CBEB61C00241975 /* MGPostWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGPostWordViewController.m; sourceTree = "<group>"; };
 		CC9A99D61CC7D8110031C250 /* MGSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSettingViewController.h; sourceTree = "<group>"; };
 		CC9A99D71CC7D8110031C250 /* MGSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSettingViewController.m; sourceTree = "<group>"; };
+		CC9A99DA1CC7FA930031C250 /* MGLoginTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGLoginTool.h; sourceTree = "<group>"; };
+		CC9A99DB1CC7FA930031C250 /* MGLoginTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGLoginTool.m; sourceTree = "<group>"; };
 		CCBD3E291CB17645009D6171 /* MGUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGUser.h; sourceTree = "<group>"; };
 		CCBD3E2A1CB17645009D6171 /* MGUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGUser.m; sourceTree = "<group>"; };
 		CCBD3E2C1CB17850009D6171 /* MGComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGComment.h; sourceTree = "<group>"; };
@@ -464,6 +467,7 @@
 		CC2D2F3C1CADC32E00371D81 /* Other-其他 */ = {
 			isa = PBXGroup;
 			children = (
+				CC9A99D91CC7FA770031C250 /* Tool */,
 				CC2D2F3F1CADC32E00371D81 /* Category */,
 				CC2D2F461CADC32E00371D81 /* Controller */,
 				CC2D2F531CADC32E00371D81 /* View */,
@@ -604,6 +608,15 @@
 				CC2EB7891CC54C4400D829BD /* MGTagTextField.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CC9A99D91CC7FA770031C250 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				CC9A99DA1CC7FA930031C250 /* MGLoginTool.h */,
+				CC9A99DB1CC7FA930031C250 /* MGLoginTool.m */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 		CCE9BBB41CBCEF7800C4EC1A /* View */ = {
@@ -810,6 +823,7 @@
 				CCBD3E2E1CB17850009D6171 /* MGComment.m in Sources */,
 				CC2D2F861CADC32E00371D81 /* MGTabBarController.m in Sources */,
 				CC2D2F881CADC32E00371D81 /* main.m in Sources */,
+				CC9A99DC1CC7FA930031C250 /* MGLoginTool.m in Sources */,
 				CC9A99D81CC7D8110031C250 /* MGSettingViewController.m in Sources */,
 				CC2D2F5C1CADC32E00371D81 /* MGEssenceViewController.m in Sources */,
 				CCEE3FA51CB8FF8F0079FEF4 /* MGCommentViewController.m in Sources */,

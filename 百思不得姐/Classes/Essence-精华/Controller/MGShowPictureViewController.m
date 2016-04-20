@@ -64,14 +64,6 @@
     }];
 }
 
-//- (void)setTopic:(MGTopic *)topic
-//{
-//    _topic = topic;
-//    
-//    
-//    
-//}
-
 
 #pragma mark - 保存图片
 - (IBAction)save {
