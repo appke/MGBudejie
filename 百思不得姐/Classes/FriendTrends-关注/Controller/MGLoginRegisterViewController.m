@@ -34,12 +34,6 @@
 
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle
-{
-    // 亮色，就是白色
-    return UIStatusBarStyleLightContent;
-}
-
 - (IBAction)showLoginOrRegister:(UIButton *)button {
     
     // 切换的退出键盘
@@ -72,8 +66,6 @@
 
 /**
  *  不要一下子就变白
- *
- *  @param animated <#animated description#>
  */
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -83,5 +75,10 @@
     [MGTopWindow hide];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    // 亮色，就是白色
+    return UIStatusBarStyleLightContent;
+}
 
 @end
