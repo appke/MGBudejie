@@ -35,6 +35,7 @@
     UITabBarItem *tabBarItem = [UITabBarItem appearance];
     [tabBarItem setTitleTextAttributes:attrs forState:UIControlStateNormal];
     [tabBarItem setTitleTextAttributes:selAttrs forState:UIControlStateSelected];
+    
 }
 
 - (void)viewDidLoad {
@@ -72,7 +73,6 @@
     MGNavigationController *nav = [[MGNavigationController alloc] initWithRootViewController:vc];
     
     [self addChildViewController:nav];
-    
 }
 
 @end

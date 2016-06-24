@@ -11,7 +11,6 @@
 #import "MGAddTagToolbarView.h"
 
 
-
 @interface MGPostWordViewController () <UITextViewDelegate>
 /** 文本输入框 */
 @property (nonatomic, weak) MGPlaceholderTextView *textView;

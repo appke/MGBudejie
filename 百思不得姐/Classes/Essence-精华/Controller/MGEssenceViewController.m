@@ -220,7 +220,7 @@
 {
     [self scrollViewDidEndScrollingAnimation:scrollView];
     
-    // 点击按钮,让按钮移动
+    // 让按钮移动
     NSInteger index = scrollView.contentOffset.x / scrollView.width;
     [self titleClicked:self.titlesView.subviews[index]];
 }

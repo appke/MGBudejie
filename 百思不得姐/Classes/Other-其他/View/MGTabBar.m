@@ -69,7 +69,7 @@
 {
     [super layoutSubviews];
     
-    // 标记按钮是否已经添加过监听器
+    // 标记按钮是否已经添加过监听器,这个方法会重复调用
     static BOOL added = NO;
     
     // 设置发布按钮的frame
