@@ -65,7 +65,7 @@
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
     // 发出一个通知
-    [[NSNotificationCenter defaultCenter] postNotificationName:MGTabBarDidSelectNotification object:nil userInfo:nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:MGTabBarDidSelectNotification object:nil userInfo:nil];
 }
 
 @end
