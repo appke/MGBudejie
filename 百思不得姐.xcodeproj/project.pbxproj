@@ -196,6 +196,7 @@
 		CC3843F91CC436B8003F8AF4 /* MGTagButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGTagButton.m; sourceTree = "<group>"; };
 		CC3B1F181CB4321100BE8324 /* UIImage+MGExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MGExtension.h"; sourceTree = "<group>"; };
 		CC3B1F191CB4321100BE8324 /* UIImage+MGExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MGExtension.m"; sourceTree = "<group>"; };
+		CC6033811EE726140084A29A /* LxDBAnything.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LxDBAnything.h; sourceTree = "<group>"; };
 		CC64D1DA1C8E87EC00C7A44D /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC64D1F31C8E87EC00C7A44D /* 百思不得姐.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "百思不得姐.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC7AE39E1CBEB50500241975 /* MGPublishView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGPublishView.h; sourceTree = "<group>"; };
@@ -481,6 +482,7 @@
 				CC2D2F511CADC32E00371D81 /* MGConst.m */,
 				CC2D2F521CADC32E00371D81 /* PrefixHeader.pch */,
 				CC2D2F4E1CADC32E00371D81 /* Foundation+Log.m */,
+				CC6033811EE726140084A29A /* LxDBAnything.h */,
 			);
 			path = "Other-其他";
 			sourceTree = "<group>";

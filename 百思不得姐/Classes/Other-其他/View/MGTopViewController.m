@@ -25,7 +25,6 @@ static id instance_;
 + (instancetype)allocWithZone:(struct _NSZone *)zone {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-
         instance_ = [super allocWithZone:zone];
     });
     return instance_;

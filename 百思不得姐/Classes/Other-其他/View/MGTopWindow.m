@@ -26,8 +26,6 @@ static UIWindow *window_;
     
 //    // 添加手势, 类方法里面, self是类, 调用的也是类方法, 否则找不到
 //    [window_ addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(windowClick)]];
-    
-    
 }
 
 /**

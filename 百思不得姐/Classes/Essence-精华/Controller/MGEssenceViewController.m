@@ -70,6 +70,8 @@
     all.title = @"全部";
     all.type = MGTopicTypeAll;
     [self addChildViewController:all];
+    
+    
 }
 
 #pragma mark - 设置底部的scrollView

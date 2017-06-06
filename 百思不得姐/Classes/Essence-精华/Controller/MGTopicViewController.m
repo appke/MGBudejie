@@ -35,16 +35,10 @@
 static NSString * const topicID = @"topic";
 @implementation MGTopicViewController
 
-- (NSMutableArray *)topics
-{
-    if (!_topics) {
-        _topics = [NSMutableArray array];
-    }
-    return _topics;
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    LxDBAnyVar(self.type);
     // 初始化表格
     [self setupTableView];
     
@@ -79,7 +73,6 @@ static NSString * const topicID = @"topic";
     if (self.lastSelectedIndex == self.tabBarController.selectedIndex && self.view.isShowingInKeyWindow) {
         [self.tableView.mj_header beginRefreshing];
     }
-    
     self.lastSelectedIndex = self.tabBarController.selectedIndex;
 }
 
@@ -217,6 +210,15 @@ static NSString * const topicID = @"topic";
     // 返回这个模型对应的cell高度
     MGTopic *topic = self.topics[indexPath.row];
     return topic.cellHeight;
+}
+
+#pragma mark - 懒加载
+- (NSMutableArray *)topics
+{
+    if (!_topics) {
+        _topics = [NSMutableArray array];
+    }
+    return _topics;
 }
 
 @end
