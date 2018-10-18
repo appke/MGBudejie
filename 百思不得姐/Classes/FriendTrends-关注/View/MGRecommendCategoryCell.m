@@ -18,31 +18,28 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    
+
     // 选中时的背景色，为文字的颜色
     self.backgroundColor = MGRGBColor(244, 244, 244);
-    
-    self.selectedIndicator.backgroundColor = MGRGBColor(219, 21, 26);
-//    self.textLabel.textColor = MGRGBColor(78, 78, 78);
-//    self.textLabel.highlightedTextColor = MGRGBColor(219, 21, 26);
-    
-//    UIView *bg = [[UIView alloc] init];
-//    bg.backgroundColor = [UIColor clearColor];
-//    self.selectedBackgroundView = bg;
 
+    self.selectedIndicator.backgroundColor = MGRGBColor(219, 21, 26);
+    //    self.textLabel.textColor = MGRGBColor(78, 78, 78);
+    //    self.textLabel.highlightedTextColor = MGRGBColor(219, 21, 26);
+
+    //    UIView *bg = [[UIView alloc] init];
+    //    bg.backgroundColor = [UIColor clearColor];
+    //    self.selectedBackgroundView = bg;
 }
 
-
-- (void)setCategory:(MGRecommendCategory *)category
-{
+- (void)setCategory:(MGRecommendCategory *)category {
     _category = category;
-    
+
     self.textLabel.text = category.name;
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
+
     self.textLabel.y = 2;
     self.textLabel.height = self.contentView.height - 2 * self.textLabel.y;
 }
@@ -50,13 +47,10 @@
 /**
  *  监听cell的选中和取消选中
  */
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-    
+
     self.selectedIndicator.hidden = !selected;
-    
-    self.textLabel.textColor = selected ?self.selectedIndicator.backgroundColor : MGRGBColor(78, 78, 78);
 }
 
 @end
